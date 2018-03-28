@@ -8,7 +8,7 @@ param (
     [switch]$Remoting
 )
 
-Set-ExecutionPolicy Bypass -Scope Process -Force
+Set-ExecutionPolicy Unrestricted -Force
 Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
 choco install powershell -y
@@ -30,3 +30,5 @@ if ( $All -or $Remoting ) {
     Set-Item WSMan:localhost\client\trustedhosts -value * # this is SUPER sketchy so use at your own risk
     Get-Item WSMan:\localhost\Client\TrustedHosts
 }
+
+(Invoke-WebRequest https://raw.githubusercontent.com/ThmsRynr/dev-workstation/master/prompt.ps1 -UseBasicParsing).Content | Out-File $profile
