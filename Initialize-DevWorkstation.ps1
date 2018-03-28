@@ -13,7 +13,7 @@ Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://cho
 
 choco install powershell -y
 
-choco install googlechrome 7zip git.install visualstudiocode vscode-powershell conemu -y
+choco install googlechrome 7zip git.install visualstudiocode vscode-powershell conemu greenshot -y
 
 if ( $All -or $VisualStudio ) { choco install visualstudio2017enterprise -y }
 
