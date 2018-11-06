@@ -16,15 +16,49 @@
     { "$F;22m$B;5m{0}" -f $([char]0xe0b0) }
     
     { "$B;5m$F;15m{0}" -f $($pwd.Drive.Name) }
-    { "$B;20m$F;5m{0}" -f $([char]0xe0b0) }
+    { "$B;14m$F;5m{0}" -f $([char]0xe0b0) }
     
-    { "$B;20m$F;15m{0}$E[0m" -f $(Split-Path $pwd -leaf) }
-    { "$F;20m{0}$E[0m" -f $([char]0xe0b0) }
+    { "$B;14m$F;15m{0}$E[0m" -f $(Split-Path $pwd -leaf) }
 )
 function global:prompt {
     $global:er = if ($?){22}else{1}
     $E = "$([char]27)"
     $F = "$E[38;5"
     $B = "$E[48;5"
-    -join $global:Prompt.Invoke()
+    
+    $gitTest = $(git config -l) -match 'branch\.'
+    if (-not [string]::IsNullOrEmpty($gitTest)) {
+        $branch = git symbolic-ref --short -q HEAD
+        $aheadbehind = git status -sb
+        $distance = ''
+
+        if (-not [string]::IsNullOrEmpty($(git diff --staged))) { $branchbg = 3 }
+        else { $branchbg = 5 }
+
+        if (-not [string]::IsNullOrEmpty($(git status -s))) { $arrowfg = 3 }
+        else { $arrowfg = 5 }
+
+        if ($aheadbehind -match '\[\w+.*\w+\]$') {
+            $ahead = [regex]::matches($aheadbehind, '(?<=ahead\s)\d').value
+            $behind = [regex]::matches($aheadbehind, '(?<=behind\s)\d').value
+
+            $distance = "$B;15m$F;${arrowfg}m{0}$E[0m" -f $([char]0xe0b0)
+            if ($ahead) {$distance += "$B;15m$F;0m{0}$E[0m" -f "a$ahead"}
+            if ($behind) {$distance += "$B;15m$F;0m{0}$E[0m" -f "b$behind"}
+            $distance += "$F;15m{0}$E[0m" -f $([char]0xe0b0)
+        }
+        else {
+            $distance = "$F;${arrowfg}m{0}$E[0m" -f $([char]0xe0b0)
+        }
+
+        [System.Collections.Generic.List[ScriptBlock]]$gitPrompt = @(
+            { "$B;${branchbg}m$F;14m{0}$E[0m" -f $([char]0xe0b0) }
+            { "$B;${branchbg}m$F;15m{0}$E[0m" -f $branch }
+            { "{0}$E[0m" -f $distance }
+        )
+        -join @($global:Prompt + $gitPrompt + {" "}).Invoke()
+    }
+    else {
+        -join @($global:Prompt + { "$F;14m{0}$E[0m" -f $([char]0xe0b0) } + {" "}).Invoke()
+    }
 }
