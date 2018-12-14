@@ -31,4 +31,4 @@ if ( $All -or $Remoting ) {
     Get-Item WSMan:\localhost\Client\TrustedHosts
 }
 
-(Invoke-WebRequest https://raw.githubusercontent.com/ThmsRynr/dev-workstation/master/prompt.ps1 -UseBasicParsing).Content | Out-File $profile
+(Invoke-WebRequest https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/prompt.ps1 -UseBasicParsing).Content | Out-File $profile
