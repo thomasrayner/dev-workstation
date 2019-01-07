@@ -4,6 +4,8 @@ param (
     [switch]$Office,
     [switch]$PowerPointViewer,
     [switch]$VisualStudio,
+    [switch]$UACNoConsent,
+    [switch]$ShowFileExt,
     [switch]$Help,
     [switch]$Remoting
 )
@@ -20,6 +22,19 @@ if ( $All -or $VisualStudio ) { choco install visualstudio2017enterprise -y }
 if ( $PowerPointViewer ) { choco install powerpoint.viewer -y }
 
 if ( $All -or $Office ) { choco install office365proplus -y }
+
+if ( $All -or $UACNoConsent ) {
+    # Regkey to turn off UAC consent prompt behavior for Admins; NOT disabling UAC gloablly
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "ConsentPromptBehaviorAdmin" -Value 0
+}
+
+if ( $All -or $ShowFileExt ) {
+    # Show extensions for known file types; current user
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "HideFileExt" -Value 0
+    # Show extensions for known file types; all users
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\Folder\HideFileExt" -Name "DefaultValue" -Value 0
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\Folder\HideFileExt" -Name "CheckedValue" -Value 0
+}
 
 if ( $All -or $Help ) { update-help }
 
