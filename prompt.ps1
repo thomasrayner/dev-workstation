@@ -1,13 +1,13 @@
-[System.Collections.Generic.List[ScriptBlock]]$global:Prompt = @(
+[System.Collections.Generic.List[ScriptBlock]]$global:PromptRight = @(
     # right aligned
-    { " " * ($Host.UI.RawUI.BufferSize.Width - 29) }
     { "$F;${er}m{0}" -f [char]0xe0b2 }
     { "$F;15m$B;${er}m{0}" -f $(if (@(get-history).Count -gt 0){(get-history)[-1] | % { "{0:c}" -f (new-timespan $_.StartExecutionTime $_.EndExecutionTime)}}else{'00:00:00.0000000'}) }
     
     { "$F;7m$B;${er}m{0}" -f [char]0xe0b2 }
     { "$F;0m$B;7m{0}" -f $(get-date -format "hh:mm:ss tt") }
-    
-    
+)
+
+[System.Collections.Generic.List[ScriptBlock]]$global:PromptLeft = @(
     # left aligned
     { "$F;15m$B;${global:plat}m{0}" -f $('{0:d4}' -f $MyInvocation.HistoryId) }
     { "$B;22m$F;${global:plat}m{0}" -f $([char]0xe0b0) }
@@ -58,12 +58,14 @@ function global:prompt {
             { "$B;${branchbg}m$F;15m{0}$E[0m" -f $branch }
             { "{0}$E[0m" -f $distance }
         )
-        $p = -join @($global:Prompt + $gitPrompt + {" "}).Invoke()
+        $p = -join @($global:PromptLeft + $gitPrompt + {" "}).Invoke()
     }
     else {
-        $p = -join @($global:Prompt + { "$F;14m{0}$E[0m" -f $([char]0xe0b0) } + {" "}).Invoke()
+        $p = -join @($global:PromptLeft + { "$F;14m{0}$E[0m" -f $([char]0xe0b0) } + {" "}).Invoke()
     }
 
-    $r = $p + "$E[s" + "$B;0m$F;0m$(' ' * $host.ui.RawUI.BufferSize.Width)" + "$E[u" + "$E[0m"
+    $l = -join ($global:promptRight).Invoke()
+    $o = $global:host.UI.RawUI.MaxWindowSize.Width - 28
+    $r = -join @($p, "$E[${o}G", $l, "$E[0m" + "`n`r`> ")
     $r
 }
