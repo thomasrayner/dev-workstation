@@ -9,8 +9,8 @@
     
     
     # left aligned
-    { "$F;15m$B;117m{0}" -f $('{0:d4}' -f $MyInvocation.HistoryId) }
-    { "$B;22m$F;117m{0}" -f $([char]0xe0b0) }
+    { "$F;15m$B;${global:plat}m{0}" -f $('{0:d4}' -f $MyInvocation.HistoryId) }
+    { "$B;22m$F;${global:plat}m{0}" -f $([char]0xe0b0) }
     
     { "$B;22m$F;15m{0}" -f $(if($pushd = (Get-Location -Stack).count) { "$([char]187)" + $pushd }) }
     { "$F;22m$B;5m{0}" -f $([char]0xe0b0) }
@@ -22,9 +22,11 @@
 )
 function global:prompt {
     $global:er = if ($?){22}else{1}
+    $global:plat = if ($isWindows){11}else{117}
     $E = "$([char]27)"
     $F = "$E[38;5"
     $B = "$E[48;5"
+    $p = ''
     
     $gitTest = $(git config -l) -match 'branch\.'
     if (-not [string]::IsNullOrEmpty($gitTest)) {
@@ -56,9 +58,12 @@ function global:prompt {
             { "$B;${branchbg}m$F;15m{0}$E[0m" -f $branch }
             { "{0}$E[0m" -f $distance }
         )
-        -join @($global:Prompt + $gitPrompt + {" "}).Invoke()
+        $p = -join @($global:Prompt + $gitPrompt + {" "}).Invoke()
     }
     else {
-        -join @($global:Prompt + { "$F;14m{0}$E[0m" -f $([char]0xe0b0) } + {" "}).Invoke()
+        $p = -join @($global:Prompt + { "$F;14m{0}$E[0m" -f $([char]0xe0b0) } + {" "}).Invoke()
     }
+
+    $r = $p + "$E[s" + "$B;0m$F;0m$(' ' * $host.ui.RawUI.BufferSize.Width)" + "$E[u" + "$E[0m"
+    $r
 }
