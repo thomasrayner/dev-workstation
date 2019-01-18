@@ -46,4 +46,7 @@ if ( $All -or $Remoting ) {
     Get-Item WSMan:\localhost\Client\TrustedHosts
 }
 
-(Invoke-WebRequest https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/prompt.ps1 -UseBasicParsing).Content | Out-File $profile
+(Invoke-WebRequest https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/prompt.ps1 -UseBasicParsing).Content | Out-File $profil
+
+# Alias "pog" stands for "pretty log"
+git config --global alias.pog=log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
