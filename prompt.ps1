@@ -46,10 +46,10 @@ function global:prompt {
             $ahead = [regex]::matches($aheadbehind, '(?<=ahead\s)\d').value
             $behind = [regex]::matches($aheadbehind, '(?<=behind\s)\d').value
     
-            $distance = "$B;${forePromptColor}m$F;${arrowfg}m{0}$E[0m" -f $([char]0xe0b0)
-            if ($ahead) {$distance += "$B;${forePromptColor}m$F;0m{0}$E[0m" -f "a$ahead"}
-            if ($behind) {$distance += "$B;${forePromptColor}m$F;0m{0}$E[0m" -f "b$behind"}
-            $distance += "$F;${forePromptColor}m{0}$E[0m" -f $([char]0xe0b0)
+            $distance = "$B;15m$F;${arrowfg}m{0}$E[0m" -f $([char]0xe0b0)
+            if ($ahead) {$distance += "$B;15m$F;${forePromptColor}m{0}$E[0m" -f "a$ahead"}
+            if ($behind) {$distance += "$B;15m$F;${forePromptColor}m{0}$E[0m" -f "b$behind"}
+            $distance += "$F;15m{0}$E[0m" -f $([char]0xe0b0)
         }
         else {
             $distance = "$F;${arrowfg}m{0}$E[0m" -f $([char]0xe0b0)
