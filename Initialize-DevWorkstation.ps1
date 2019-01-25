@@ -7,15 +7,20 @@ param (
     [switch]$UACNoConsent,
     [switch]$ShowFileExt,
     [switch]$Help,
-    [switch]$Remoting
+    [switch]$Remoting,
+    [switch]$PowerLineFonts
 )
 
+# Install Choco
 Set-ExecutionPolicy Unrestricted -Force
 Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
-choco install powershell -y
+choco install powershell pwsh googlechrome 7zip git.install vscode vscode-insiders conemu greenshot discord.install -y
 
-choco install googlechrome 7zip git.install visualstudiocode vscode-powershell conemu greenshot -y
+# Alias "pog" stands for "pretty log"
+git config --global alias.pog "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+New-Item -Path c:\git -ItemType Directory -Force -ErrorAction 0
+Push-Location c:\git
 
 if ( $All -or $VisualStudio ) { choco install visualstudio2017enterprise -y }
 
@@ -46,7 +51,12 @@ if ( $All -or $Remoting ) {
     Get-Item WSMan:\localhost\Client\TrustedHosts
 }
 
-(Invoke-WebRequest https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/prompt.ps1 -UseBasicParsing).Content | Out-File $profil
+if ($All -or $PowerLineFonts) {
+    git clone https://github.com/powerline/fonts.git
+    Push-Location fonts
+    & .\install.ps1
+    Pop-Location
+}
 
-# Alias "pog" stands for "pretty log"
-git config --global alias.pog "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+(Invoke-WebRequest https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/prompt.ps1 -UseBasicParsing).Content | Out-File $profile
+
