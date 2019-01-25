@@ -67,7 +67,7 @@ function global:prompt {
     }
     
     $l = -join ($global:promptRight).Invoke()
-    $o = $global:host.UI.RawUI.MaxWindowSize.Width - 28
+    $o = $global:host.UI.RawUI.BufferSize.Width - 28
     $r = -join @($p, "$E[${o}G", $l, "$E[0m" + "`n`r`> ")
     $r
 }
