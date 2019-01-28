@@ -15,7 +15,10 @@ param (
 Set-ExecutionPolicy Unrestricted -Force
 Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
-choco install powershell pwsh googlechrome 7zip git.install vscode vscode-insiders conemu greenshot discord.install -y
+choco install powershell pwsh googlechrome 7zip git.install vscode vscode-insiders conemu greenshot discord.install nodejs -y
+
+npm install -g yo generator-code
+npm install -g vsce
 
 # Alias "pog" stands for "pretty log"
 git config --global alias.pog "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
