@@ -13,6 +13,10 @@ Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://cho
 # Install all the different Choco packages I want on a box
 choco install powershell pwsh googlechrome 7zip git.install vscode vscode-insiders visualstudio2017enterprise conemu greenshot discord.install nodejs office365proplus -y
 
+# Install the VS Code ext for syncing my settings
+code-insiders --install-extension Shan.code-settings-sync
+code --install-extension Shan.code-settings-sync
+
 # Install Node packages for developing VS Code extensions
 npm install -g yo generator-code vsce
 
