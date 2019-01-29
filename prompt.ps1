@@ -43,8 +43,8 @@ function global:prompt {
         else { $arrowfg = 5 }
     
         if ($aheadbehind -match '\[\w+.*\w+\]$') {
-            $ahead = [regex]::matches($aheadbehind, '(?<=ahead\s)\d').value
-            $behind = [regex]::matches($aheadbehind, '(?<=behind\s)\d').value
+            $ahead = [regex]::matches($aheadbehind, '(?<=ahead\s)\d+').value
+            $behind = [regex]::matches($aheadbehind, '(?<=behind\s)\d+').value
     
             $distance = "$B;15m$F;${arrowfg}m{0}$E[0m" -f $([char]0xe0b0)
             if ($ahead) {$distance += "$B;15m$F;${forePromptColor}m{0}$E[0m" -f "a$ahead"}
