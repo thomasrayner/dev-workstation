@@ -44,6 +44,14 @@ if ( $All -or $UACNoConsent ) {
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "ConsentPromptBehaviorAdmin" -Value 0
 }
 
-# Make for a neat looking PS prompt
-(Invoke-WebRequest https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/prompt.ps1 -UseBasicParsing).Content | Out-File $profile
+# Make for a neat looking PS prompt for each profile
+$profileContent = (Invoke-WebRequest https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/prompt.ps1 -UseBasicParsing).Content
+foreach ($proPath in @(
+    "$($env:userprofile)\Documents\PowerShell\Microsoft.PowerShell_profile.ps1"
+    "$($env:userprofile)\Documents\PowerShell\Microsoft.VSCode_profile.ps1"
+    "$($env:userprofile)\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1"
+    "$($env:userprofile)\Documents\WindowsPowerShell\Microsoft.VSCode_profile.ps1"
+)) {
+    Set-Content -Value $profileContent -Path $proPath
+}
 
