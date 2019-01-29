@@ -18,7 +18,7 @@ code-insiders --install-extension Shan.code-settings-sync
 code --install-extension Shan.code-settings-sync
 
 # Install Node packages for developing VS Code extensions
-npm install -g yo generator-code vsce
+npm install -g yo generator-code vsce typescript
 
 # Alias "pog" stands for "pretty log"
 git config --global alias.pog "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
