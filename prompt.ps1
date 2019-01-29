@@ -71,5 +71,3 @@ function global:prompt {
     $r = -join @($p, "$E[${o}G", $l, "$E[0m" + "`n`r`> ")
     $r
 }
-
-push-location "c:\git" -ErrorAction 0
