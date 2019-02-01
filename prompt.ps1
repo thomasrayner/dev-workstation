@@ -71,3 +71,6 @@ function global:prompt {
     $r = -join @($p, "$E[${o}G", $l, "$E[0m" + "`n`r`> ")
     $r
 }
+
+# Set this alias every time PowerShell launches so I stop mistyping code-insiders
+Set-Alias -Name code -Value code-insiders
