@@ -44,6 +44,11 @@ if ( $All -or $UACNoConsent ) {
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "ConsentPromptBehaviorAdmin" -Value 0
 }
 
+# Setup PSGallery
+Install-PackageProvider -Name Nuget -Scope CurrentUser -Force -Confirm:$false
+Install-Module -Name Terminal-Icons -Scope CurrentUser -Repository PSGallery -Force -Confirm:$false
+Import-Module Terminal-Icons -Force
+
 # Make for a neat looking PS prompt for each profile
 $profileContent = (Invoke-WebRequest https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/prompt.ps1 -UseBasicParsing).Content
 foreach ($proPath in @(
