@@ -1,16 +1,13 @@
 #Requires -RunAsAdministrator
 
-
 [cmdletbinding()]
 param (
     [switch]$UACNoConsent
 )
 
-# Install Choco
+# Install Choco and all the different Choco packages I want on a box
 Set-ExecutionPolicy Unrestricted -Force
 Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-
-# Install all the different Choco packages I want on a box
 choco install powershell pwsh googlechrome 7zip git.install vscode vscode-insiders visualstudio2019professional visualstudio2019buildtools conemu greenshot discord.install nodejs office365proplus -y
 
 # Install the VS Code ext for syncing my settings
@@ -40,17 +37,24 @@ Push-Location fonts
 Pop-Location
 
 if ( $All -or $UACNoConsent ) {
-    # Regkey to turn off UAC consent prompt behavior for Admins; NOT disabling UAC gloablly
-    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "ConsentPromptBehaviorAdmin" -Value 0
+    # Regkey to turn off UAC consent prompt behavior for Admins; NOT disabling UAC
+    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System' -Name 'ConsentPromptBehaviorAdmin' -Value 0
 }
 
-# Setup PSGallery
+# Setup PSGallery, install terminal-icons for fanciness
 Install-PackageProvider -Name Nuget -Scope CurrentUser -Force -Confirm:$false
 Install-Module -Name Terminal-Icons -Scope CurrentUser -Repository PSGallery -Force -Confirm:$false
 Import-Module Terminal-Icons -Force
 
+# Download and install a font pack that works with terminal-icons and the other fun stuff I'm doing in my prompt
+# Still going to need to configure ConEmu to use the font, VS Code will get it through settings sync
+Invoke-WebRequest 'https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete%20Windows%20Compatible.ttf' -OutFile "$($env:TEMP)\HackNF.ttf"
+$fontShell = New-Object -ComObject Shell.Application
+$fontFolder = $fontShell.Namespace(0x14)
+$fontFolder.CopyHere("$($env:TEMP)\HackNF.ttf", 0x10)
+
 # Make for a neat looking PS prompt for each profile
-$profileContent = (Invoke-WebRequest https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/prompt.ps1 -UseBasicParsing).Content
+$profileContent = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/prompt.ps1' -UseBasicParsing).Content
 foreach ($proPath in @(
     "$($env:userprofile)\Documents\PowerShell\Microsoft.PowerShell_profile.ps1"
     "$($env:userprofile)\Documents\PowerShell\Microsoft.VSCode_profile.ps1"
@@ -59,4 +63,3 @@ foreach ($proPath in @(
 )) {
     Set-Content -Value $profileContent -Path $proPath
 }
-
