@@ -8,7 +8,7 @@ param (
 # Install Choco and all the different Choco packages I want on a box
 Set-ExecutionPolicy Unrestricted -Force
 Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-choco install powershell pwsh googlechrome 7zip git.install vscode vscode-insiders visualstudio2019professional visualstudio2019buildtools conemu greenshot discord.install nodejs office365proplus -y
+choco install powershell pwsh googlechrome 7zip git.install docker-desktop vscode vscode-insiders visualstudio2019professional visualstudio2019buildtools conemu greenshot discord.install nodejs office365proplus -y
 
 # Install the VS Code ext for syncing my settings
 code-insiders --install-extension Shan.code-settings-sync
