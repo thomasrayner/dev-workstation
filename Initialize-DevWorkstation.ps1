@@ -22,7 +22,6 @@ git config --global alias.pog "log --graph --pretty=format:'%Cred%h%Creset -%C(y
 
 # Make a place for Git repos to live
 New-Item -Path c:\git -ItemType Directory -Force -ErrorAction 0
-Push-Location c:\git
 
 # Show extensions for known file types; current user
 Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "HideFileExt" -Value 0
@@ -30,7 +29,7 @@ Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\Folder\HideFileExt" -Name "DefaultValue" -Value 0
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\Folder\HideFileExt" -Name "CheckedValue" -Value 0
 
-if ( $All -or $UACNoConsent ) {
+if ($UACNoConsent) {
     # Regkey to turn off UAC consent prompt behavior for Admins; NOT disabling UAC
     Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System' -Name 'ConsentPromptBehaviorAdmin' -Value 0
 }
@@ -52,4 +51,4 @@ foreach ($proPath in @(
 }
 
 $wtProfileContent = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/profiles.json' -UseBasicParsing).Content
-Set-Content -Value $wtProfileContent -Path "$env:USERPROFILE\AppData\Local\Packages\Microsoft.WindowsTerminal_*\LocalState\.json"
+Set-Content -Value $wtProfileContent -Path "$env:USERPROFILE\AppData\Local\Packages\Microsoft.WindowsTerminal_*\LocalState\profiles.json"
