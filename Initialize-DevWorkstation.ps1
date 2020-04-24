@@ -8,7 +8,7 @@ param (
 # Install Choco and all the different Choco packages I want on a box
 Set-ExecutionPolicy Unrestricted -Force
 Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-choco install powershell pwsh googlechrome microsoft-edge-insider-dev 7zip git.install docker-desktop vscode vscode-insiders visualstudio2019professional visualstudio2019buildtools microsoft-windows-terminal cascadiacodepl greenshot discord.install nodejs office365proplus -y
+choco install powershell pwsh googlechrome microsoft-edge-insider-dev 7zip git.install docker-desktop vscode vscode-insiders visualstudio2019professional visualstudio2019buildtools microsoft-windows-terminal cascadiafonts greenshot discord.install nodejs office365proplus -y
 
 # Install Node packages for developing VS Code extensions
 npm install -g yo generator-code vsce typescript
@@ -18,6 +18,7 @@ git config --global alias.pog "log --graph --pretty=format:'%Cred%h%Creset -%C(y
 
 # Make a place for Git repos to live
 New-Item -Path c:\git -ItemType Directory -Force -ErrorAction 0
+New-Item -Path c:\temp -ItemType Directory -Force -ErrorAction 0
 
 # Show extensions for known file types; current user
 Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "HideFileExt" -Value 0
