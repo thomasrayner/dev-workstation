@@ -31,6 +31,11 @@ if ($UACNoConsent) {
     Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System' -Name 'ConsentPromptBehaviorAdmin' -Value 0
 }
 
+# Install WSL & make v2 default
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+wsl --set-default-version 2
+
 # Setup PSGallery
 Install-PackageProvider -Name Nuget -Scope CurrentUser -Force -Confirm:$false
 
