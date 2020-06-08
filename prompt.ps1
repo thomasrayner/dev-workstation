@@ -78,3 +78,5 @@ function global:prompt {
 
 # Set this alias every time PowerShell launches so I stop mistyping code-insiders
 Set-Alias code code-insiders
+
+Set-PSReadLineOption -PredictionSource History
