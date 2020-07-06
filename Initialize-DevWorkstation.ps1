@@ -5,6 +5,17 @@ param (
     [switch]$UACNoConsent
 )
 
+# Make for a neat looking PS prompt for each profile
+$psProfileContent = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/prompt.ps1' -UseBasicParsing).Content
+foreach ($proPath in @(
+    "$($env:userprofile)\Documents\PowerShell\Microsoft.PowerShell_profile.ps1"
+    "$($env:userprofile)\Documents\PowerShell\Microsoft.VSCode_profile.ps1"
+    "$($env:userprofile)\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1"
+    "$($env:userprofile)\Documents\WindowsPowerShell\Microsoft.VSCode_profile.ps1"
+)) {
+    Set-Content -Value $psProfileContent -Path $proPath
+}
+
 # Install Choco and all the different Choco packages I want on a box
 Set-ExecutionPolicy Unrestricted -Force
 Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
@@ -38,17 +49,6 @@ wsl --set-default-version 2
 
 # Setup PSGallery
 Install-PackageProvider -Name Nuget -Scope CurrentUser -Force -Confirm:$false
-
-# Make for a neat looking PS prompt for each profile
-$psProfileContent = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/prompt.ps1' -UseBasicParsing).Content
-foreach ($proPath in @(
-    "$($env:userprofile)\Documents\PowerShell\Microsoft.PowerShell_profile.ps1"
-    "$($env:userprofile)\Documents\PowerShell\Microsoft.VSCode_profile.ps1"
-    "$($env:userprofile)\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1"
-    "$($env:userprofile)\Documents\WindowsPowerShell\Microsoft.VSCode_profile.ps1"
-)) {
-    Set-Content -Value $psProfileContent -Path $proPath
-}
 
 $wtProfileContent = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/settings.json' -UseBasicParsing).Content
 Set-Content -Value $wtProfileContent -Path "$env:USERPROFILE\AppData\Local\Packages\Microsoft.WindowsTerminal_*\LocalState\settings.json"
