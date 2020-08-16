@@ -5,8 +5,43 @@ param (
     [switch]$UACNoConsent
 )
 
+#apps
+$Apps = @(
+    # Business Apps
+    'microsoft-edge',
+    'office365proplus',
+    'microsoft-teams',
+    # Developer Tools
+    'git.install',
+    'vscode',
+    'vscode-powershell',
+    'microsoft-windows-terminal',
+    'nugetpackageexplorer',
+    'nuget.commandline',
+    'dotnetcore-sdk',
+    'docker-desktop',
+    'visualstudio2019professional',
+    'visualstudio2019buildtools',
+    'cascadiafonts',
+    'greenshot',
+    'nodejs',
+    # Entertainment Apps
+    'spotify',
+    'discord.install',
+    # Helpful Tools
+    '7zip',
+    'sysinternals',
+    'wireshark',
+    'lastpass',
+    'vlc',
+    'googlechrome',
+    'powershell',
+    'pwsh',
+    'microsoft-windows-terminal'
+)
+
 # Make for a neat looking PS prompt for each profile
-$psProfileContent = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/prompt.ps1' -UseBasicParsing).Content
+$psProfileContent = (Invoke-WebRequest 'https://raw.githubusercontent.com/udubnate/dev-workstation/master/prompt.ps1' -UseBasicParsing).Content
 foreach ($proPath in @(
     "$($env:userprofile)\Documents\PowerShell\Microsoft.PowerShell_profile.ps1"
     "$($env:userprofile)\Documents\PowerShell\Microsoft.VSCode_profile.ps1"
@@ -19,7 +54,7 @@ foreach ($proPath in @(
 # Install Choco and all the different Choco packages I want on a box
 Set-ExecutionPolicy Unrestricted -Force
 Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-choco install nugetpackageexplorer nuget.commandline dotnetcore-sdk powershell pwsh googlechrome microsoft-edge-insider-dev 7zip git.install docker-desktop vscode vscode-insiders visualstudio2019professional visualstudio2019buildtools microsoft-windows-terminal cascadiafonts greenshot discord.install nodejs office365proplus -y
+choco install $($Apps -join ' ') -y
 
 # Install Node packages for developing VS Code extensions
 npm install -g yo generator-code vsce typescript
@@ -50,5 +85,5 @@ wsl --set-default-version 2
 # Setup PSGallery
 Install-PackageProvider -Name Nuget -Scope CurrentUser -Force -Confirm:$false
 
-$wtProfileContent = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/settings.json' -UseBasicParsing).Content
+$wtProfileContent = (Invoke-WebRequest 'https://raw.githubusercontent.com/udubnate/dev-workstation/master/settings.json' -UseBasicParsing).Content
 Set-Content -Value $wtProfileContent -Path "$env:USERPROFILE\AppData\Local\Packages\Microsoft.WindowsTerminal_*\LocalState\settings.json"
