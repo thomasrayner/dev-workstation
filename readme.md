@@ -6,9 +6,11 @@ It's quick and dirty by design. Lots of flexibility, and not a lot of dependenci
 
 Post-Deployment Config Script: [bit.ly/nate-dev](https://bit.ly/nate-dev)
 
-
-Then run `iex '$((iwr bit.ly/nate-dev -usebasicparsing).Content) | out-file c:\Initialize.ps1; c:\initialize.ps1 -UACNoConsent'` from an administrative PowerShell console (substitute -All for whichever flag you want: All, Office, PowerPointViewer, VisualStudio, Help, Remoting).
-
+from an Administrative PowerShell console
+``` powershell
+Set-ExecutionPolicy Unrestricted
+iex '$((iwr bit.ly/nate-dev -usebasicparsing).Content)' | out-file c:\Initialize.ps1; c:\initialize.ps1 -UACNoConsent 
+```
 
 ## Behind the Scenes
 
