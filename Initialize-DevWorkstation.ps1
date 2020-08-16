@@ -67,7 +67,9 @@ task ChocoInstall {
 # Install Choco and all the different Choco packages I want on a box
 Set-ExecutionPolicy Unrestricted -Force
 Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-choco install $($Apps -join ' ') -y
+foreach ($app in $Apps){
+cinst $app -y
+}
 }
 
 task NPMPackageInstall {
