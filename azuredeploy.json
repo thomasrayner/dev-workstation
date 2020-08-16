@@ -7,7 +7,7 @@
             "metadata": {
                 "description": "Username for the Virtual Machine."
             },
-            "defaultValue": "thomas"
+            "defaultValue": "nate"
         },
         "adminPassword": {
             "type": "securestring",
