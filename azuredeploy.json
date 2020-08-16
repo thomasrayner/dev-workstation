@@ -108,8 +108,8 @@
                     "imageReference": {
                         "publisher": "MicrosoftWindowsDesktop",
                         "offer": "Windows-10",
-                        "sku": "RS3-Pro",
-                        "version": "latest"
+                        "sku": "rs5-pro",
+                        "version": "17763.1339.2007101755"
                     },
                     "osDisk": {
                         "createOption": "FromImage"
