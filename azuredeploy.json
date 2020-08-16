@@ -22,7 +22,7 @@
         "subnetName": "Subnet",
         "subnetPrefix": "10.0.0.0/24",
         "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]",
-        "vmName": "tfr-dev",
+        "vmName": "nate-dev",
         "virtualNetworkName": "MyVNET",
         "publicIPAddressName": "myPublicIP",
         "dnsNameForPublicIP": "[uniqueString(resourceGroup().id)]"
