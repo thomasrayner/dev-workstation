@@ -15,4 +15,4 @@ iex '$((iwr bit.ly/nate-dev -usebasicparsing).Content)' | out-file c:\Initialize
 ## Behind the Scenes
 
 - How to create an Azure Button - https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-to-azure-button
-- Custom Variables: Win 10 Enterprise image for work - offer: rs5-enterprise, same rest
+- Custom Variables - you can use different offers and customize the name of the VM, etc to meet your needs. Defaults to what I like.
