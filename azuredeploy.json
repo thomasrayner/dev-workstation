@@ -14,6 +14,34 @@
             "metadata": {
                 "description": "Password for the Virtual Machine."
             }
+        },
+        "publisher": {
+            "type": "string",
+            "metadata": {
+                "description": "VM Image Gallery Publisher."
+            },
+            "defaultValue": "MicrosoftWindowsDesktop"
+        },
+        "sku": {
+            "type": "string",
+            "metadata": {
+                "description": "VM Image Gallery SKU."
+            },
+            "defaultValue": "Windows-10"
+        },
+        "offer": {
+            "type": "string",
+            "metadata": {
+                "description": "VM Image Gallery Offer."
+            },
+            "defaultValue": "rs5-pro"
+        },
+        "version": {
+            "type": "string",
+            "metadata": {
+                "description": "VM Image Gallery Version."
+            },
+            "defaultValue": "17763.1339.2007101755"
         }
     },
     "variables": {
@@ -106,10 +134,10 @@
                 },
                 "storageProfile": {
                     "imageReference": {
-                        "publisher": "MicrosoftWindowsDesktop",
-                        "offer": "Windows-10",
-                        "sku": "rs5-pro",
-                        "version": "17763.1339.2007101755"
+                        "publisher": "[parameters('publisher')]",
+                        "offer": "[parameters('offer')]",
+                        "sku": "[parameters('sku')]",
+                        "version": "[parameters('version')]"
                     },
                     "osDisk": {
                         "createOption": "FromImage"
