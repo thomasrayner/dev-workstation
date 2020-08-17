@@ -59,7 +59,7 @@
         "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]",
         "virtualNetworkName": "MyVNET",
         "publicIPAddressName": "myPublicIP",
-        "dnsNameForPublicIP": "[uniqueString(resourceGroup().id)]"
+        "dnsNameForPublicIP": "[parameters('vmName')]"
     },
     "resources": [
         {
