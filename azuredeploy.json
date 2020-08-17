@@ -29,17 +29,17 @@
             },
             "defaultValue": "MicrosoftWindowsDesktop"
         },
+        "offer": {
+            "type": "string",
+            "metadata": {
+                "description": "VM Image Gallery offer."
+            },
+            "defaultValue": "Windows-10"
+        },
         "sku": {
             "type": "string",
             "metadata": {
                 "description": "VM Image Gallery SKU."
-            },
-            "defaultValue": "Windows-10"
-        },
-        "offer": {
-            "type": "string",
-            "metadata": {
-                "description": "VM Image Gallery Offer."
             },
             "defaultValue": "rs5-pro"
         },
