@@ -41,14 +41,14 @@
             "metadata": {
                 "description": "VM Image Gallery SKU."
             },
-            "defaultValue": "rs5-pro"
+            "defaultValue": "20h1-pro"
         },
         "version": {
             "type": "string",
             "metadata": {
                 "description": "VM Image Gallery Version."
             },
-            "defaultValue": "17763.1339.2007101755"
+            "defaultValue": "19041.450.2008080726"
         }
     },
     "variables": {
