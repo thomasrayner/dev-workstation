@@ -48,7 +48,7 @@
             "metadata": {
                 "description": "VM Image Gallery Version."
             },
-            "defaultValue": "18363.1016.2008070242"
+            "defaultValue": "19041.450.2008080726"
         }
     },
     "variables": {
