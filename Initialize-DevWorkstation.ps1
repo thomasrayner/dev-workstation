@@ -29,7 +29,7 @@ $Apps = @(
     'greenshot',
     'nodejs',
     # Entertainment Apps
-    'spotify',
+ #   'spotify',
     'discord.install',
     # Helpful Tools
     '7zip',

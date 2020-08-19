@@ -8,7 +8,11 @@ Post-Deployment Config Script: [bit.ly/nate-dev](https://bit.ly/nate-dev)
 
 from an Administrative PowerShell console
 ``` powershell
-Set-ExecutionPolicy Unrestricted
+Set-ExecutionPolicy Unrestricted -Force; 
+
+pre-req script : Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force; Install-Module InvokeBuild -Force; Import-Module InvokeBuild
+Invoke-Build -File C:\Initialize-DevWorkstation.ps1
+
 iex '$((iwr bit.ly/nate-dev -usebasicparsing).Content)' | out-file c:\Initialize.ps1; c:\initialize.ps1 -UACNoConsent 
 ```
 
@@ -16,3 +20,4 @@ iex '$((iwr bit.ly/nate-dev -usebasicparsing).Content)' | out-file c:\Initialize
 
 - How to create an Azure Button - https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-to-azure-button
 - Custom Variables - you can use different offers and customize the name of the VM, etc to meet your needs. Defaults to what I like.
+
