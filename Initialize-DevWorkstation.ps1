@@ -40,11 +40,17 @@ $Apps = @(
     'googlechrome',
     'powershell',
     'pwsh',
-    'microsoft-windows-terminal'
+    'microsoft-windows-terminal',
+    'wsl2'
 )
 
 
-task . UpdatePSPrompt, ChocoInstall, NPMPackageInstall, GitConfig, SetupFolders, SetupWindowsExplorer, SetUAC, WSLv2, InstallNugetProvider, TerminalConfig
+task . PowerShellModule UpdatePSPrompt, ChocoInstall, NPMPackageInstall, GitConfig, SetupFolders, SetupWindowsExplorer, SetUAC, WSLv2, InstallNugetProvider, TerminalConfig
+
+task PowerShellModule {
+    Install-Module posh-git -Scope CurrentUser -Force
+    Install-Module oh-my-posh -Scope CurrentUser -Force
+    }
 
 task UpdatePSPrompt {
     # Make for a neat looking PS prompt for each profile
@@ -119,3 +125,4 @@ task TerminalConfig {
 $wtProfileContent = (Invoke-WebRequest 'https://raw.githubusercontent.com/udubnate/dev-workstation/master/settings.json' -UseBasicParsing).Content
 Set-Content -Value $wtProfileContent -Path "$env:USERPROFILE\AppData\Local\Packages\Microsoft.WindowsTerminal_*\LocalState\settings.json"
 }
+
