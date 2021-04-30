@@ -6,7 +6,7 @@ param ()
 # Install Choco and all the different Choco packages I want on a box
 Set-ExecutionPolicy Unrestricted -Force
 Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-choco install powershell pwsh microsoft-edge-insider-dev 7zip git.install docker-desktop vscode vscode-insiders visualstudio2019professional visualstudio2019buildtools microsoft-windows-terminal cascadiafonts greenshot telegram discord.install nodejs office365proplus -y
+choco install nugetpackageexplorer nuget.commandline dotnetcore-sdk powershell pwsh microsoft-edge-insider-dev 7zip git.install docker-desktop vscode vscode-insiders visualstudio2019professional visualstudio2019buildtools microsoft-windows-terminal cascadiafonts greenshot telegram discord.install nodejs office365proplus -y
 
 # Install Node packages for developing VS Code extensions
 npm install -g yo generator-code vsce typescript
@@ -39,5 +39,11 @@ foreach ($proPath in @(($profile.PSObject.Properties | Where-Object {$_.MemberTy
     Set-Content -Value $psProfileContent -Path $proPath
 }
 
+# Install WSL & make v2 default
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+wsl --set-default-version 2
+
+# Setup Windows Terminal settings
 $wtProfileContent = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/settings.json' -UseBasicParsing).Content
 Set-Content -Value $wtProfileContent -Path "$env:USERPROFILE\AppData\Local\Packages\Microsoft.WindowsTerminal_*\LocalState\settings.json"
