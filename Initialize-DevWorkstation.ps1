@@ -6,7 +6,29 @@ param ()
 # Install Choco and all the different Choco packages I want on a box
 Set-ExecutionPolicy Unrestricted -Force
 Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-choco install nugetpackageexplorer nuget.commandline dotnetcore-sdk powershell pwsh microsoft-edge-insider-dev 7zip git.install docker-desktop vscode vscode-insiders visualstudio2019professional visualstudio2019buildtools microsoft-windows-terminal cascadiafonts greenshot telegram discord.install nodejs office365proplus -y
+$chocoPackages = @(
+    'nugetpackageexplorer',
+    'nuget.commandline',
+    'dotnetcore-sdk',
+    'powershell',
+    'pwsh',
+    'microsoft-edge-insider-dev',
+    '7zip',
+    'git.install',
+    'docker-desktop',
+    'vscode',
+    'vscode-insiders',
+    'visualstudio2019professional',
+    'visualstudio2019buildtools',
+    'microsoft-windows-terminal',
+    'cascadiafonts',
+    'greenshot',
+    'telegram',
+    'discord.install',
+    'nodejs',
+    'office365proplus'
+)
+choco install $chocoPackages -y
 
 # Install Node packages for developing VS Code extensions
 npm install -g yo generator-code vsce typescript
