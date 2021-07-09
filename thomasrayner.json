@@ -2,36 +2,8 @@
     "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
     "blocks": [
         {
-            "alignment": "right",
-            "segments": [
-                {
-                    "type": "executiontime",
-                    "style": "powerline",
-                    "powerline_symbol": "\uE0B0",
-                    "foreground": "#ffffff",
-                    "background": "#8800dd",
-                    "properties": {
-                        "threshold": 0,
-                        "style": "roundrock"
-                    }
-                },
-                {
-                    "background": "#ffffff",
-                    "foreground": "#8800dd",
-                    "properties": {
-                        "postfix": "",
-                        "time_format": "15:04:05"
-                    },
-                    "style": "powerline",
-                    "powerline_symbol": "\uE0B0",
-                    "type": "time"
-                }
-            ],
-            "type": "prompt"
-        },
-        {
+            "type": "prompt",
             "alignment": "left",
-            "newline": true,
             "segments": [
                 {
                     "foreground": "#757575",
@@ -99,10 +71,38 @@
                     "style": "powerline",
                     "type": "exit"
                 }
-            ],
-            "type": "prompt"
+            ]
         },
         {
+            "type": "prompt",
+            "alignment": "right",
+            "segments": [
+                {
+                    "type": "executiontime",
+                    "style": "powerline",
+                    "powerline_symbol": "\uE0B0",
+                    "foreground": "#ffffff",
+                    "background": "#8800dd",
+                    "properties": {
+                        "threshold": 0,
+                        "style": "roundrock"
+                    }
+                },
+                {
+                    "background": "#ffffff",
+                    "foreground": "#8800dd",
+                    "properties": {
+                        "postfix": "",
+                        "time_format": "15:04:05"
+                    },
+                    "style": "powerline",
+                    "powerline_symbol": "\uE0B0",
+                    "type": "time"
+                }
+            ]
+        },
+        {
+            "type": "prompt",
             "alignment": "left",
             "newline": true,
             "segments": [
@@ -117,19 +117,17 @@
                     "type": "text"
                 },
                 {
-                    "foreground": "#ffffff",
+                    "type": "exit",
+                    "style": "powerline",
+                    "foreground": "lightGreen",
                     "properties": {
-                        "postfix": "",
-                        "prefix": "",
-                        "text": ">"
-                    },
-                    "style": "plain",
-                    "type": "text"
+                        "display_exit_code": false,
+                        "always_enabled": true,
+                        "error_color": "red",
+                        "prefix": "$"
+                    }
                 }
-            ],
-            "type": "prompt"
+            ]
         }
-    ],
-    "final_space": true,
-    "osc99": true
+    ]
 }
