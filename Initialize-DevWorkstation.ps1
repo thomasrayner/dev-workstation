@@ -25,7 +25,8 @@ $chocoPackages = @(
     'telegram',
     'discord.install',
     'nodejs',
-    'office365proplus'
+    'office365proplus',
+    'obs-studio'
 )
 choco install $chocoPackages -y
 choco install 'microsoft-windows-terminal' -y --pre
