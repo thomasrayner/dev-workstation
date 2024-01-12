@@ -1,13 +1,7 @@
-# Quick and Dirty Dev Workstations in Azure
+# quick dev workstation bootstrapping
 
-It's quick and dirty by design. Lots of flexibility, and not a lot of dependencies :)
+This repo contains settings files and quick scripts for bare bones dev workstation setup. It'll just about always take more tweaking, but this'll get you going.
 
-[![Deploy](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fthomasrayner%2Fdev-workstation%2Fmaster%2Fazuredeploy.json)
+## nvim .config
 
-Post-Deployment Config Script: [bit.ly/tfr-dev](http://bit.ly/tfr-dev)
-
-Then run `iex '$((iwr bit.ly/tfr-dev -usebasicparsing).Content) | out-file c:\Initialize.ps1; c:\initialize.ps1 -UACNoConsent'` from an administrative PowerShell console.
-
-## Update: April 2021
-
-There's a great chance that there is a better Azure SKU to use, but I don't actually use the Azure deployment part of this a lot. Mostly I'm just running the script to configure a new laptop or something. Your milage may vary! :)
+I put my neovim .config in it's own repo for some reason: [thomasrayner/nvim](https://github.com/thomasrayner/nvim)
