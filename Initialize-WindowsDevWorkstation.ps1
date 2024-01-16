@@ -20,6 +20,7 @@ $chocoPackages = @(
     'cascadiafonts',
     'telegram',
     'discord.install',
+    'autohotkey.install'
     'nodejs',
     'obs-studio',
     'azure-cli',
