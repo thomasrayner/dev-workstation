@@ -13,7 +13,7 @@ sudo apt-get install -y powershell
 chsh -s $(which pwsh)
 
 # Dotnet sdk and runtime, latest versions of git, npm - unzip is needed to install LSPs
-sudo apt-get install -y dotnet-sdk-8.0 aspnetcore-runtime-8.0 git unzip npm
+sudo apt-get install -y dotnet-sdk-8.0 aspnetcore-runtime-8.0 git unzip npm ripgrep
 
 # Want the pre-release version of neovim
 sudo add-apt-repository ppa:neovim-ppa/unstable
