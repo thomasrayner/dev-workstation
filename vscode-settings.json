@@ -51,7 +51,10 @@
     "extensions.ignoreRecommendations": false,
     "git.openRepositoryInParentFolders": "never",
     "github.copilot.enable": {
-        "*": true
+        "*": false,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
     },
     "liveshare.featureSet": "insiders",
     "notebook.output.textLineLimit": 9999999999999,
@@ -157,10 +160,25 @@
             "commands": ["editor.action.clipboardPasteAction"]
         },
         {
-            "before": ["K"],
+            "before": ["<leader>", "k"],
             "commands": ["editor.action.showHover"]
+        },
+        {
+            "before": ["J"],
+            "commands": ["editor.action.moveLinesDownAction"]
+        },
+        {
+            "before": ["K"],
+            "commands": ["editor.action.moveLinesUpAction"]
+        },
+        {
+            "before": [">"],
+            "commands": ["editor.action.indentLines"]
+        },
+        {
+            "before": ["<"],
+            "commands": ["editor.action.outdentLines"]
         }
-
     ],
     "vim.visualModeKeyBindingsNonRecursive": [
         {
