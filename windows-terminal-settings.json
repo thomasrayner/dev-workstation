@@ -28,7 +28,7 @@
             "keys": "alt+shift+t"
         }
     ],
-    "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+    "defaultProfile": "{2c4de342-38b7-51cf-b940-2309a097f518}",
     "newTabMenu": 
     [
         {
@@ -54,7 +54,7 @@
                 "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
                 "hidden": false,
                 "name": "PowerShell",
-                "opacity": 0,
+                "opacity": 75,
                 "source": "Windows.Terminal.PowershellCore"
             },
             {
@@ -64,10 +64,14 @@
                 "source": "Windows.Terminal.Azure"
             },
             {
+                "font": 
+                {
+                    "face": "FiraMono Nerd Font Mono"
+                },
                 "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
                 "hidden": false,
                 "name": "Ubuntu",
-                "opacity": 0,
+                "opacity": 75,
                 "source": "Windows.Terminal.Wsl",
                 "useAcrylic": true
             }
