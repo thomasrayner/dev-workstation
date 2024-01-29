@@ -27,7 +27,8 @@ $chocoPackages = @(
     'dotnetfx',
     'dotnet-sdk',
     'eartrumpet',
-    'neovim'
+    'neovim',
+    'firacode'
 )
 choco install $chocoPackages -y
 choco install 'microsoft-windows-terminal' -y --pre
