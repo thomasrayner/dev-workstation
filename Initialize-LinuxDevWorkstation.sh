@@ -37,5 +37,8 @@ nvim -c ":CocInstall coc-powershell | q"
 
 # Setup PowerShell profile
 mkdir -p ~/.config/powershell
+
+# install starship for prompt
+curl -sS https://starship.rs/install.sh | sh
 touch ~/.config/powershell/Microsoft.PowerShell_profile.ps1
 curl -o ~/.config/powershell/Microsoft.PowerShell_profile.ps1 https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/linux-psprofile.ps1
