@@ -51,7 +51,7 @@
     "extensions.ignoreRecommendations": false,
     "git.openRepositoryInParentFolders": "never",
     "github.copilot.enable": {
-        "*": false,
+        "*": true,
         "plaintext": false,
         "markdown": false,
         "scminput": false
@@ -152,6 +152,29 @@
     "vim.hlsearch": true,
     "vim.normalModeKeyBindingsNonRecursive": [
         {
+            "before": [
+                "S"
+            ],
+            "commands": [
+                "editor.action.addSelectionToNextFindMatch",
+                "editor.action.startFindReplaceAction"
+            ],
+            "args": {
+                "seedSearchStringFromSelection": true,
+                "isRegex": true,
+                "replaceString": "",
+                "searchString": ""
+            }
+        },
+        {
+            "before": ["L"],
+            "after": ["$"]
+        },
+        {
+            "before": ["H"],
+            "after": ["^"]
+        },
+        {
             "before": ["<leader>", "y"],
             "commands": ["editor.action.clipboardCopyAction"]
         },
@@ -178,9 +201,67 @@
         {
             "before": ["<"],
             "commands": ["editor.action.outdentLines"]
+        },
+        {
+            "before": ["<C-u>"],
+            "after": ["<C-u>", "z", "z"]
+        },
+        {
+            "before": ["<C-d>"],
+            "after": ["<C-d>", "z", "z"]
+        },
+        {
+            "before": ["{"],
+            "after": ["{", "z", "z"]
+        },
+        {
+            "before": ["}"],
+            "after": ["}", "z", "z"]
+        },
+        {
+            "before": ["n"],
+            "after": ["n", "z", "z"]
+        },
+        {
+            "before": ["N"],
+            "after": ["N", "z", "z"]
+        },
+        {
+            "before": ["<C-i>"],
+            "after": ["<C-i>", "z", "z"]
+        },
+        {
+            "before": ["<C-o>"],
+            "after": ["<C-o>", "z", "z"]
+        },
+        {
+            "before": ["%"],
+            "after": ["%", "z", "z"]
+        },
+        {
+            "before": ["*"],
+            "after": ["*", "z", "z"]
+        },
+        {
+            "before": ["#"],
+            "after": ["#", "z", "z"]
+        },
+        {
+            "before": ["S"],
+            
         }
     ],
     "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": ["S"],
+            "commands": ["editor.action.startFindReplaceAction"],
+            "args": {
+                "seedSearchStringFromSelection": true,
+                "isRegex": true,
+                "replaceString": "editor.getSelections()[0].getText()",
+                "searchString": "editor.getSelections()[0].getText()"
+            }
+        },
         {
             "before": ["<leader>", "y"],
             "commands": ["editor.action.clipboardCopyAction"]
@@ -207,6 +288,9 @@
         }
     ],
     "vim.useSystemClipboard": false,
+    "vim.highlightedyank.enable": true,
+    "vim.enableNeovim": true,
+    "vim.neovimPath": "C:\\tools\\neovim\\nvim-win64\\bin\\nvim.exe",
     "vscode-neovim.neovimExecutablePaths.darwin": "C:\\tools\\neovim\\nvim-win64\\bin\\nvim.exe",
     "vscode-neovim.neovimExecutablePaths.linux": "C:\\tools\\neovim\\nvim-win64\\bin\\nvim.exe",
     "vscode-neovim.neovimExecutablePaths.win32": "C:\\tools\\neovim\\nvim-win64\\bin\\nvim.exe",
@@ -228,5 +312,8 @@
     "[typescript]": {
         "editor.defaultFormatter": "vscode.typescript-language-features"
     },
-    "glassit.alpha": 220
+    "glassit.alpha": 220,
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    }
 }
