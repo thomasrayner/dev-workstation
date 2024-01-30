@@ -19,6 +19,7 @@ ghmcadams.lintlens
 github.copilot
 github.copilot-chat
 github.vscode-pull-request-github
+golang.go
 ibm.output-colorizer
 johnpapa.vscode-peacock
 mhutchie.git-graph
@@ -55,6 +56,7 @@ pnp.polacode
 ranger-4297.yagpdb-cc-updated
 rosshamish.kuskus-kusto-syntax-highlighting
 shd101wyy.markdown-preview-enhanced
+talhabalaj.actual-font-changer
 thmsrynr.cat-facts
 thmsrynr.rightlines
 thmsrynr.vscode-namegen
