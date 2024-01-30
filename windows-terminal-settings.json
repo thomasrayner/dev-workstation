@@ -29,6 +29,7 @@
         }
     ],
     "defaultProfile": "{2c4de342-38b7-51cf-b940-2309a097f518}",
+    "launchMode": "maximized",
     "newTabMenu": 
     [
         {
@@ -42,7 +43,7 @@
             "colorScheme": "Dracula",
             "font": 
             {
-                "face": "Cascadia Mono PL"
+                "face": "FiraMono Nerd Font Mono"
             },
             "opacity": 75,
             "useAcrylic": true

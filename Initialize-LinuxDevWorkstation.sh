@@ -42,4 +42,4 @@ mkdir -p ~/.config/powershell
 curl -sS https://starship.rs/install.sh | sh
 curl -o ~/.config/starship.toml https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/starship.toml
 touch ~/.config/powershell/Microsoft.PowerShell_profile.ps1
-curl -o ~/.config/powershell/Microsoft.PowerShell_profile.ps1 https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/linux-psprofile.ps1
+curl -o ~/.config/powershell/Microsoft.PowerShell_profile.ps1 https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/profile.ps1
