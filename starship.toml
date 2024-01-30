@@ -4,10 +4,6 @@
 # Inserts a blank line between shell prompts
 add_newline = true
 
-# Replace the '❯' symbol in the prompt with '➜'
-[character] # The name of the module we are configuring is 'character'
-success_symbol = '[➜](bold green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
-
 # Disable the package module, hiding it from the prompt completely
 [package]
 disabled = true
@@ -19,7 +15,7 @@ min_time = 100
 format = 'took [$duration](bold green)'
 
 [directory]
-truncation_length = 25
+truncation_length = 150
 truncation_symbol = '.../'
 
 [direnv]
@@ -31,13 +27,10 @@ style = 'green'
 heuristic = true
 
 [git_branch]
-format = '[$symbol$branch(:$remote_name/$remote_branch)]($style) '
+format = '[$symbol$branch]($style) '
 
 [git_commit]
-commit_hash_length = 4
+style = 'bold yellow'
+commit_hash_length = 10
 tag_symbol = '🔖 '
 
-[git_status]
-ahead = '⇡${count}'
-diverged = '⇕⇡${ahead_count}⇣${behind_count}'
-behind = '⇣${count}'
