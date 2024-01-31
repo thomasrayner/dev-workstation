@@ -1,8 +1,11 @@
+format = """
+$directory$git_branch$git_commit$git_state$git_status$dotnet$rust$golang$java$nodejs$python$cmd_duration
+$character"""
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
 
 # Inserts a blank line between shell prompts
-add_newline = true
+add_newline = false
 
 # Disable the package module, hiding it from the prompt completely
 [package]
@@ -12,7 +15,7 @@ disabled = true
 
 [cmd_duration]
 min_time = 100
-format = 'took [$duration](bold green)'
+format = 'took [$duration](bold green) '
 
 [directory]
 truncation_length = 150
@@ -22,8 +25,6 @@ truncation_symbol = '.../'
 disabled = false
 
 [dotnet]
-symbol = '🥅'
-style = 'green'
 heuristic = true
 
 [git_branch]
@@ -33,4 +34,21 @@ format = '[$symbol$branch]($style) '
 style = 'bold yellow'
 commit_hash_length = 10
 tag_symbol = '🔖 '
+tag_disabled = false
 
+[git_state]
+# nil
+
+[git_status]
+# Show the info relative to the upstream first: how many commits ahead/behind/diverged/conflicted
+# Show the info for current working set after: deleted, staged, renamed, modified, untracked.
+format       = "$ahead$behind$diverged$conflicted$deleted$staged$renamed$modified$untracked"
+conflicted   = "[≠ $count ](bold purple)"
+ahead        = "[⇡ $count ](bold purple)"
+behind       = "[⇣ $count ](bold purple)"
+diverged     = "[⇕ $count ](bold purple)"
+untracked    = "[+ $count ](bold blue)"
+modified     = "[~ $count ](bold cyan)"
+staged       = "[++ $count ](bold green)"
+renamed      = "[» $count ](bold white)"
+deleted      = "[✘ $count ](bold red)"
