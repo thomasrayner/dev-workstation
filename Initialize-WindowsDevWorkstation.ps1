@@ -68,3 +68,5 @@ foreach ($ext in $vscodeExtensions.Split("`n")) {
 
 # Install WSL & distributions
 wsl --install -d Ubuntu
+
+git config --global core.editor "nvim"
