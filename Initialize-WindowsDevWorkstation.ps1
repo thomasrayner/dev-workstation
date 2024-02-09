@@ -66,6 +66,13 @@ foreach ($ext in $vscodeExtensions.Split("`n")) {
     code-insiders --install-extension $ext
 }
 
+$startupPath = "$($env:APPDATA)\Microsoft\Windows\Start Menu\Programs\Startup"  
+New-Item -Path $startupPath -ItemType Directory -Force -ErrorAction 0
+$teamsMute = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/teamsmute.ahk' -UseBasicParsing).Content
+$teamsCam = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/teamscam.ahk' -UseBasicParsing).Content
+Set-Content -Path "$startupPath\teamsmute.ahk" -Value $teamsMute -Force
+Set-Content -Path "$startupPath\teamscam.ahk" -Value $teamsCam -Force
+
 # Install WSL & distributions
 wsl --install -d Ubuntu
 
