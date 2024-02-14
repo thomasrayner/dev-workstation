@@ -7,10 +7,10 @@ return
 
 ~^#Left::
     vDesktop -= 1
-    Sleep, 20
-    if (vDesktop=0) {
+    Sleep, 200
+    if (vDesktop = 0) {
         vDesktop = %numDesktops%
-        Loop, % numDesktops + 1
+        Loop, % numDesktops
         {
             SendInput ^#{Right}
         }
@@ -19,10 +19,10 @@ return
 
 ~^#Right::
     vDesktop += 1
-    Sleep, 20
-    if (vDesktop >= numDesktops + 1) {
+    Sleep, 200
+    if (vDesktop = numDesktops + 1) {
         vDesktop = 1
-        Loop, % numDesktops + 1
+        Loop, % numDesktops
         {
             SendInput ^#{Left}
         }
