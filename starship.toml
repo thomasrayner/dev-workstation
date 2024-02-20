@@ -34,6 +34,7 @@ format = '[$symbol$branch]($style) '
 style = 'bold yellow'
 commit_hash_length = 10
 tag_symbol = '🔖 '
+only_detached = false
 tag_disabled = false
 
 [git_state]
