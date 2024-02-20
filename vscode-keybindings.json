@@ -1,0 +1,61 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+    {
+        "key": "ctrl+alt+l",
+        "command": "workbench.action.terminal.focusNext",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+alt+h",
+        "command": "workbench.action.terminal.focusPrevious",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+alt+j",
+        "command": "workbench.action.togglePanel"
+    },
+    {
+        "key": "ctrl+alt+t",
+        "command": "workbench.action.terminal.new",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+alt+w",
+        "command": "workbench.action.terminal.kill",
+        "when": "terminalFocus"
+    },
+    {
+        "command": "workbench.action.toggleSidebarVisibility",
+        "key": "ctrl+e"
+    },
+    {
+        "command": "workbench.files.action.focusFilesExplorer",
+        "key": "ctrl+e",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "n",
+        "command": "explorer.newFile",
+        "when": "filesExplorerFocus && !inputFocus"
+    },
+    {
+        "command": "renameFile",
+        "key": "r",
+        "when": "filesExplorerFocus && !inputFocus"
+    },
+    {
+        "command": "explorer.newFolder",
+        "key": "shift+n",
+        "when": "explorerViewletFocus"
+    },
+    {
+        "command": "workbench.action.newWindow",
+        "key": "shift+n",
+        "when": "!explorerViewletFocus"
+    },
+    {
+        "command": "deleteFile",
+        "key": "d",
+        "when": "filesExplorerFocus && !inputFocus"
+    },
+]

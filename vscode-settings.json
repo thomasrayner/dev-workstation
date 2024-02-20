@@ -11,19 +11,19 @@
     "codetour.showMarkers": true,
     "color-highlight.markerType": "outline",
     "color-highlight.matchWords": true,
-    "debug.console.fontFamily": "Cascadia Mono PL Regular",
+    "debug.console.fontFamily": "FiraMono Nerd Font Mono",
     "debug.inlineValues": true,
     "diffEditor.renderSideBySide": true,
     "editor.accessibilitySupport": "off",
-    "editor.codeLensFontFamily": "Cascadia Mono PL",
+    "editor.codeLensFontFamily": "FiraMono Nerd Font Mono",
     "editor.cursorBlinking": "phase",
     "editor.cursorSmoothCaretAnimation": "on",
     "editor.cursorSurroundingLines": 10,
     "editor.cursorWidth": 3,
-    "editor.fontFamily": "Cascadia Mono PL Regular",
+    "editor.fontFamily": "FiraMono Nerd Font Mono",
     "editor.formatOnPaste": true,
     "editor.guides.indentation": false,
-    "editor.inlayHints.fontFamily": "Cascadia Mono PL Regular",
+    "editor.inlayHints.fontFamily": "FiraMono Nerd Font Mono",
     "editor.inlineSuggest.enabled": true,
     "editor.lineNumbers": "relative",
     "editor.minimap.enabled": true,
@@ -51,7 +51,7 @@
     "extensions.ignoreRecommendations": false,
     "git.openRepositoryInParentFolders": "never",
     "github.copilot.enable": {
-        "*": true,
+        "*": false,
         "plaintext": false,
         "markdown": false,
         "scminput": false
@@ -132,7 +132,7 @@
         "*.json",
         "*.yaml"
     ],
-    "scm.inputFontFamily": "Cascadia Mono PL Regular",
+    "scm.inputFontFamily": "FiraMono Nerd Font Mono",
     "search.showLineNumbers": true,
     "security.workspace.trust.untrustedFiles": "open",
     "team.showWelcomeMessage": false,
@@ -141,7 +141,7 @@
     "terminal.integrated.cursorBlinking": true,
     "terminal.integrated.cursorStyle": "line",
     "terminal.integrated.drawBoldTextInBrightColors": false,
-    "terminal.integrated.fontFamily": "Cascadia Mono PL Regular",
+    "terminal.integrated.fontFamily": "FiraMono Nerd Font Mono",
     "terminal.integrated.fontSize": 16,
     "terminal.integrated.rendererType": "auto",
     "terminal.integrated.rightClickBehavior": "copyPaste",
@@ -151,6 +151,98 @@
     "vim.incsearch": true,
     "vim.hlsearch": true,
     "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<leader>",
+                "t",
+                "f"
+            ],
+            "commands": [
+                "workbench.action.quickOpen"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "t",
+                "s"
+            ],
+            "commands": [
+                "workbench.action.findInFiles"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "a"
+            ],
+            "commands": [
+                ":bprevious"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g"
+            ],
+            "commands": [
+                ":bnext"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "v"
+            ],
+            "commands": [
+                ":vsplit"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "s"
+            ],
+            "commands": [
+                ":split"
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "H"
+            ],
+            "commands": [
+                "workbench.action.focusLeftGroup"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "J"
+            ],
+            "commands": [
+                "workbench.action.focusBelowGroup"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "K"
+            ],
+            "commands": [
+                "workbench.action.focusAboveGroup"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "L"
+            ],
+            "commands": [
+                "workbench.action.focusRightGroup"
+            ]
+        },
         {
             "before": [
                 "S"
@@ -167,94 +259,209 @@
             }
         },
         {
-            "before": ["L"],
-            "after": ["$"]
+            "before": [
+                "L"
+            ],
+            "after": [
+                "$"
+            ]
         },
         {
-            "before": ["H"],
-            "after": ["^"]
+            "before": [
+                "H"
+            ],
+            "after": [
+                "^"
+            ]
         },
         {
-            "before": ["<leader>", "y"],
-            "commands": ["editor.action.clipboardCopyAction"]
+            "before": [
+                "<leader>",
+                "y"
+            ],
+            "commands": [
+                "editor.action.clipboardCopyAction"
+            ]
         },
         {
-            "before": ["<leader>", "p"],
-            "commands": ["editor.action.clipboardPasteAction"]
+            "before": [
+                "<leader>",
+                "p"
+            ],
+            "commands": [
+                "editor.action.clipboardPasteAction"
+            ]
         },
         {
-            "before": ["<leader>", "k"],
-            "commands": ["editor.action.showHover"]
+            "before": [
+                "<leader>",
+                "k"
+            ],
+            "commands": [
+                "editor.action.showHover"
+            ]
         },
         {
-            "before": ["J"],
-            "commands": ["editor.action.moveLinesDownAction"]
+            "before": [
+                "J"
+            ],
+            "commands": [
+                "editor.action.moveLinesDownAction"
+            ]
         },
         {
-            "before": ["K"],
-            "commands": ["editor.action.moveLinesUpAction"]
+            "before": [
+                "K"
+            ],
+            "commands": [
+                "editor.action.moveLinesUpAction"
+            ]
         },
         {
-            "before": [">"],
-            "commands": ["editor.action.indentLines"]
+            "before": [
+                ">"
+            ],
+            "commands": [
+                "editor.action.indentLines"
+            ]
         },
         {
-            "before": ["<"],
-            "commands": ["editor.action.outdentLines"]
+            "before": [
+                "<"
+            ],
+            "commands": [
+                "editor.action.outdentLines"
+            ]
         },
         {
-            "before": ["<C-u>"],
-            "after": ["<C-u>", "z", "z"]
+            "before": [
+                "<C-u>"
+            ],
+            "after": [
+                "<C-u>",
+                "z",
+                "z"
+            ]
         },
         {
-            "before": ["<C-d>"],
-            "after": ["<C-d>", "z", "z"]
+            "before": [
+                "<C-d>"
+            ],
+            "after": [
+                "<C-d>",
+                "z",
+                "z"
+            ]
         },
         {
-            "before": ["{"],
-            "after": ["{", "z", "z"]
+            "before": [
+                "{"
+            ],
+            "after": [
+                "{",
+                "z",
+                "z"
+            ]
         },
         {
-            "before": ["}"],
-            "after": ["}", "z", "z"]
+            "before": [
+                "}"
+            ],
+            "after": [
+                "}",
+                "z",
+                "z"
+            ]
         },
         {
-            "before": ["n"],
-            "after": ["n", "z", "z"]
+            "before": [
+                "n"
+            ],
+            "after": [
+                "n",
+                "z",
+                "z"
+            ]
         },
         {
-            "before": ["N"],
-            "after": ["N", "z", "z"]
+            "before": [
+                "N"
+            ],
+            "after": [
+                "N",
+                "z",
+                "z"
+            ]
         },
         {
-            "before": ["<C-i>"],
-            "after": ["<C-i>", "z", "z"]
+            "before": [
+                "<C-i>"
+            ],
+            "after": [
+                "<C-i>",
+                "z",
+                "z"
+            ]
         },
         {
-            "before": ["<C-o>"],
-            "after": ["<C-o>", "z", "z"]
+            "before": [
+                "<C-o>"
+            ],
+            "after": [
+                "<C-o>",
+                "z",
+                "z"
+            ]
         },
         {
-            "before": ["%"],
-            "after": ["%", "z", "z"]
+            "before": [
+                "%"
+            ],
+            "after": [
+                "%",
+                "z",
+                "z"
+            ]
         },
         {
-            "before": ["*"],
-            "after": ["*", "z", "z"]
+            "before": [
+                "*"
+            ],
+            "after": [
+                "*",
+                "z",
+                "z"
+            ]
         },
         {
-            "before": ["#"],
-            "after": ["#", "z", "z"]
+            "before": [
+                "#"
+            ],
+            "after": [
+                "#",
+                "z",
+                "z"
+            ]
         },
         {
-            "before": ["S"],
-            
+            "before": [
+                "<leader>",
+                "c",
+                "a"
+            ],
+            "commands": [
+                "editor.action.quickFix"
+            ]
         }
     ],
     "vim.visualModeKeyBindingsNonRecursive": [
         {
-            "before": ["S"],
-            "commands": ["editor.action.startFindReplaceAction"],
+            "before": [
+                "S"
+            ],
+            "commands": [
+                "editor.action.startFindReplaceAction"
+            ],
             "args": {
                 "seedSearchStringFromSelection": true,
                 "isRegex": true,
@@ -263,28 +470,54 @@
             }
         },
         {
-            "before": ["<leader>", "y"],
-            "commands": ["editor.action.clipboardCopyAction"]
+            "before": [
+                "<leader>",
+                "y"
+            ],
+            "commands": [
+                "editor.action.clipboardCopyAction"
+            ]
         },
         {
-            "before": ["<leader>", "p"],
-            "commands": ["editor.action.clipboardPasteAction"]
+            "before": [
+                "<leader>",
+                "p"
+            ],
+            "commands": [
+                "editor.action.clipboardPasteAction"
+            ]
         },
         {
-            "before": ["J"],
-            "commands": ["editor.action.moveLinesDownAction"]
+            "before": [
+                "J"
+            ],
+            "commands": [
+                "editor.action.moveLinesDownAction"
+            ]
         },
         {
-            "before": ["K"],
-            "commands": ["editor.action.moveLinesUpAction"]
+            "before": [
+                "K"
+            ],
+            "commands": [
+                "editor.action.moveLinesUpAction"
+            ]
         },
         {
-            "before": [">"],
-            "commands": ["editor.action.indentLines"]
+            "before": [
+                ">"
+            ],
+            "commands": [
+                "editor.action.indentLines"
+            ]
         },
         {
-            "before": ["<"],
-            "commands": ["editor.action.outdentLines"]
+            "before": [
+                "<"
+            ],
+            "commands": [
+                "editor.action.outdentLines"
+            ]
         }
     ],
     "vim.useSystemClipboard": false,
@@ -315,5 +548,9 @@
     "glassit.alpha": 220,
     "[javascript]": {
         "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "editor.insertSpaces": true,
+    "[go]": {
+        "editor.formatOnSave": false
     }
 }
