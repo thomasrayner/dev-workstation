@@ -46,7 +46,8 @@
     ],
     "explorer.confirmDragAndDrop": false,
     "extensions.experimental.affinity": {
-        "asvetliakov.vscode-neovim": 1
+        "asvetliakov.vscode-neovim": 1,
+        "vscodevim.vim": 1
     },
     "extensions.ignoreRecommendations": false,
     "git.openRepositoryInParentFolders": "never",
