@@ -33,7 +33,7 @@ format = '[](fg:#420000)[$symbol$branch](fg:bright-red bg:#420000)[](fg:#4
 
 [git_commit]
 format = '[](fg:#8c7012)[$hash](bold fg:bright-yellow bg:#8c7012)[](fg:#8c7012)'
-commit_hash_length = 10
+commit_hash_length = 6
 tag_symbol = '🔖 '
 only_detached = false
 tag_disabled = false
