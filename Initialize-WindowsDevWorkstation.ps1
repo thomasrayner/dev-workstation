@@ -34,6 +34,15 @@ $chocoPackages = @(
 choco install $chocoPackages -y
 choco install 'microsoft-windows-terminal' -y --pre
 
+# Window manager isn't on choco
+winget install LGUG2Z.komorebi
+winget install LGUG2Z.whkd
+mkdir "$Env:LOCALAPPDATA\komorebi" -ea 0
+$komoConfig = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/komorebi.json' -UseBasicParsing).Content
+$komoApps = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/applications.json' -UseBasicParsing).Content
+Set-Content -Path "$($env:USERPROFILE)\komorebi.json" -Value $komoConfig -Force
+Set-Content -Path "$($env:USERPROFILE)\applications.json" -Value $komoApps -Force
+
 npm install -g yo generator-code vsce typescript ts-node
 
 # Alias "pog" stands for "pretty log"
@@ -72,6 +81,7 @@ $teamsMute = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/
 $teamsCam = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/teamscam.ahk' -UseBasicParsing).Content
 Set-Content -Path "$startupPath\teamsmute.ahk" -Value $teamsMute -Force
 Set-Content -Path "$startupPath\teamscam.ahk" -Value $teamsCam -Force
+Set-Content -Path "$startupPath\start-komorebi.ps1" -Value "Get-Process *komo* | Stop-Process; komorebic start --whkd" -Force
 
 # Install WSL & distributions
 wsl --install -d Ubuntu
