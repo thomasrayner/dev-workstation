@@ -1,4 +1,4 @@
 Get-Process *whkd* | Stop-Process
-whkd --config $env:USERPROFILE\.config\whkdrc
+Start-Process -FilePath "whkd --config $env:USERPROFILE\.config\whkdrc" -WindowStyle Hidden
 Get-Process *komo* | Stop-Process
 komorebic start --whkd

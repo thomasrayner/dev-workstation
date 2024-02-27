@@ -82,7 +82,7 @@ $startupPath = "$($env:APPDATA)\Microsoft\Windows\Start Menu\Programs\Startup"
 New-Item -Path $startupPath -ItemType Directory -Force -ErrorAction 0
 $teamsMute = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/teamsmute.ahk' -UseBasicParsing).Content
 $teamsCam = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/teamscam.ahk' -UseBasicParsing).Content
-$komoStartup = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/komoStartup.ps1' -UseBasicParsing).Content
+$komoStartup = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/komosetup.ps1' -UseBasicParsing).Content
 Set-Content -Path "$startupPath\teamsmute.ahk" -Value $teamsMute -Force
 Set-Content -Path "$startupPath\teamscam.ahk" -Value $teamsCam -Force
 Set-Content -Path "$startupPath\start-komorebi.ps1" -Value $komoStartup -Force
