@@ -40,7 +40,7 @@ winget install LGUG2Z.whkd
 mkdir "$Env:LOCALAPPDATA\komorebi" -ea 0
 mkdir "$env:USERPROFILE\.config" -ea 0
 $komoConfig = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/komorebi.json' -UseBasicParsing).Content
-$komoApps = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/applications.json' -UseBasicParsing).Content
+$komoApps = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/applications.yaml' -UseBasicParsing).Content
 $komoKeys = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/whkdrc' -UseBasicParsing).Content
 Set-Content -Path "$($env:USERPROFILE)\komorebi.json" -Value $komoConfig -Force
 Set-Content -Path "$($env:USERPROFILE)\applications.json" -Value $komoApps -Force
