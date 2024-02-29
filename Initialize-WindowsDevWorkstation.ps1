@@ -29,6 +29,7 @@ $chocoPackages = @(
     'eartrumpet',
     'neovim',
     'firacode',
+    'nerd-fonts-FiraCode'
     'starship'
 )
 choco install $chocoPackages -y
@@ -43,7 +44,7 @@ $komoConfig = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner
 $komoApps = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/applications.yaml' -UseBasicParsing).Content
 $komoKeys = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/whkdrc' -UseBasicParsing).Content
 Set-Content -Path "$($env:USERPROFILE)\komorebi.json" -Value $komoConfig -Force
-Set-Content -Path "$($env:USERPROFILE)\applications.json" -Value $komoApps -Force
+Set-Content -Path "$($env:USERPROFILE)\applications.yaml" -Value $komoApps -Force
 Set-Content -Path "$($env:USERPROFILE)\.config\whkdrc" -Value $komoKeys -Force
 
 npm install -g yo generator-code vsce typescript ts-node
