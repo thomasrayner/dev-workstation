@@ -67,7 +67,7 @@ Set-PSRepository -Name 'PSGallery' -InstallationPolicy 'Trusted'
 Install-Module -Name posh-git -Repository PSGallery -Scope CurrentUser
 Set-PSRepository -Name 'PSGallery' -InstallationPolicy $policy
 $starshipPrompt = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/starship.toml' -UseBasicParsing).Content
-Set-Content -Path "$home\.config\starship.toml" -Value $starshipPrompt -Force
+Set-Content -Path "$home\.config\starship.toml" -Value $starshipPrompt -Force -Encoding utf8
 
 $psProfileContent = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/profile.ps1' -UseBasicParsing).Content
 foreach ($proPath in @(($profile.PSObject.Properties | Where-Object {$_.MemberType -eq 'NoteProperty'}).Value)) {
