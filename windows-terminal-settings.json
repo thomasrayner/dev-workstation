@@ -4,17 +4,6 @@
     "actions": 
     [
         {
-            "command": "paste",
-            "keys": "ctrl+v"
-        },
-        {
-            "command": 
-            {
-                "action": "copy"
-            },
-            "keys": "ctrl+c"
-        },
-        {
             "command": 
             {
                 "action": "splitPane",
@@ -26,10 +15,30 @@
         {
             "command": "toggleSplitOrientation",
             "keys": "alt+shift+t"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+shift+c"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+shift+v"
+        },
+        {
+            "command": 
+            {
+                "action": "copy",
+                "singleLine": false
+            },
+            "keys": "ctrl+c"
+        },
+        {
+            "command": "paste",
+            "keys": "ctrl+v"
         }
     ],
     "defaultProfile": "{2c4de342-38b7-51cf-b940-2309a097f518}",
-    "launchMode": "maximized",
+    "launchMode": "default",
     "newTabMenu": 
     [
         {
@@ -75,6 +84,12 @@
                 "opacity": 75,
                 "source": "Windows.Terminal.Wsl",
                 "useAcrylic": true
+            },
+            {
+                "guid": "{a5a97cb8-8961-5535-816d-772efe0c6a3f}",
+                "hidden": false,
+                "name": "Arch",
+                "source": "Windows.Terminal.Wsl"
             }
         ]
     },
