@@ -74,3 +74,8 @@ alt + shift + 4         : komorebic move-to-workspace 3
 alt + shift + 5         : komorebic move-to-workspace 4
 alt + shift + 6         : komorebic move-to-workspace 5
 alt + shift + 7         : komorebic move-to-workspace 6
+
+# Cycle layouts
+alt + g                 : komorebic cycle-layout next
+alt + f                 : komorebic cycle-layout previous
+
