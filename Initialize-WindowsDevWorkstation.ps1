@@ -9,6 +9,7 @@ Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://cho
 $chocoPackages = @(
     'nugetpackageexplorer',
     'nuget.commandline',
+    'ripgrep',
     'dotnetcore-sdk',
     'powershell',
     'pwsh',
