@@ -49,7 +49,7 @@ bar:
   foreground: "#ffffff"
   font_family: "Segoe UI"
   font_size: "12px"
-  padding: "4px 6px"
+  padding: "4px 50px 4px 50px"
   offset_x: "0"
   offset_y: "0"
   border_radius: "0"
