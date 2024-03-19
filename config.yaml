@@ -61,29 +61,29 @@ bar:
 
 workspaces:
   - name: "1"
-    display_name: "[1] Right Monitor"
+    display_name: "[ 1 ] Right Monitor"
     bind_to_monitor: 1
   - name: "2"
-    display_name: "[2] Email"
+    display_name: "[ 2 ] Email"
     bind_to_monitor: 2
   - name: "3"
-    display_name: "[3] Browsers"
+    display_name: "[ 3 ] Browsers"
     bind_to_monitor: 3
   - name: "4"
-    display_name: "[4] External Comms"
+    display_name: "[ 4 ] External Comms"
     bind_to_monitor: 2
   - name: "5"
-    display_name: "[5] Dev"
+    display_name: "[ 5 ] Dev"
     bind_to_monitor: 3
   - name: "6"
-    display_name: "[6] Foxtrot"
+    display_name: "[ 6 ] Foxtrot"
   - name: "7"
-    display_name: "[7] Active Call"
+    display_name: "[ 7 ] Active Call"
     bind_to_monitor: 2
   - name: "8"
-    display_name: "[8] Hotel"
+    display_name: "[ 8 ] Hotel"
   - name: "9"
-    display_name: "[9] India"
+    display_name: "[ 9 ] India"
 
 window_rules:
   # Task Manager requires admin privileges to manage and should be ignored unless running
