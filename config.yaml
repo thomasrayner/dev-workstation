@@ -69,13 +69,13 @@ workspaces:
     display_name: "[2] Email"
     bind_to_monitor: 2
   - name: "3"
-    display_name: "[3] Work Browsers"
+    display_name: "[3] Browsers"
     bind_to_monitor: 3
   - name: "4"
     display_name: "[4] External Comms"
     bind_to_monitor: 2
   - name: "5"
-    display_name: "[5] Coding"
+    display_name: "[5] Dev"
     bind_to_monitor: 3
   - name: "6"
   - name: "7"
