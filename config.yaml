@@ -76,11 +76,14 @@ workspaces:
     display_name: "[5] Dev"
     bind_to_monitor: 3
   - name: "6"
+    display_name: "[6] Foxtrot"
   - name: "7"
     display_name: "[7] Active Call"
     bind_to_monitor: 2
   - name: "8"
+    display_name: "[8] Hotel"
   - name: "9"
+    display_name: "[9] India"
 
 window_rules:
   # Task Manager requires admin privileges to manage and should be ignored unless running
