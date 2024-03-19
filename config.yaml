@@ -58,8 +58,6 @@ bar:
       focused_workspace_background: "#ffffff66"
       displayed_workspace_background: "#00000000"
       default_workspace_background: "transparent"
-  components_center:
-    - type: "window title"
 
 workspaces:
   - name: "1"
