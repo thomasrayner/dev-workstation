@@ -36,16 +36,11 @@ choco install $chocoPackages -y
 choco install 'microsoft-windows-terminal' -y --pre
 
 # Window manager isn't on choco
-winget install LGUG2Z.komorebi
-winget install LGUG2Z.whkd
-mkdir "$Env:LOCALAPPDATA\komorebi" -ea 0
-mkdir "$env:USERPROFILE\.config" -ea 0
-$komoConfig = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/komorebi.json' -UseBasicParsing).Content
-$komoApps = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/applications.yaml' -UseBasicParsing).Content
-$komoKeys = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/whkdrc' -UseBasicParsing).Content
-Set-Content -Path "$env:USERPROFILE\komorebi.json" -Value $komoConfig -Force
-Set-Content -Path "$env:USERPROFILE\applications.yaml" -Value $komoApps -Force
-Set-Content -Path "$env:USERPROFILE\.config\whkdrc" -Value $komoKeys -Force
+winget install GlazeWM
+mkdir "$env:USERPROFILE\.glaze-wm" -ea 0
+$glazeStart = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/glazestart.ps1' -UseBasicParsing).Content
+$glazeConfig = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/config.yaml' -UseBasicParsing).Content
+Set-Content -Path "$env:USERPROFILE\.glaze-wm\config.yaml" -Value $glazeConfig -Force
 
 npm install -g yo generator-code vsce typescript ts-node
 
@@ -83,10 +78,9 @@ $startupPath = "$($env:APPDATA)\Microsoft\Windows\Start Menu\Programs\Startup"
 New-Item -Path $startupPath -ItemType Directory -Force -ErrorAction 0
 $teamsMute = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/teamsmute.ahk' -UseBasicParsing).Content
 $teamsCam = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/teamscam.ahk' -UseBasicParsing).Content
-$komoStartup = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/komosetup.ps1' -UseBasicParsing).Content
 Set-Content -Path "$startupPath\teamsmute.ahk" -Value $teamsMute -Force
 Set-Content -Path "$startupPath\teamscam.ahk" -Value $teamsCam -Force
-Set-Content -Path "$startupPath\start-komorebi.ps1" -Value $komoStartup -Force
+Set-Content -Path "$startupPath\start-glaze.ps1" -Value $glazeStart -Force
 
 # Install WSL & distributions
 wsl --install -d Ubuntu
