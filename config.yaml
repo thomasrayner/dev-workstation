@@ -159,7 +159,7 @@ keybindings:
 
   # Change tiling direction. This determines where new tiling windows will be inserted.
   - command: "tiling direction toggle"
-    binding: "Alt+G"
+    binding: "Alt+X"
 
   # Change focus between floating / tiling windows.
   - command: "focus mode toggle"
@@ -171,7 +171,7 @@ keybindings:
 
   # Change the focused window to be maximized / unmaximized.
   - command: "toggle maximized"
-    binding: "Alt+X"
+    binding: "Alt+G"
 
   # Minimize focused window.
   - command: "set minimized"
