@@ -58,6 +58,13 @@ bar:
       focused_workspace_background: "#ffffff66"
       displayed_workspace_background: "#00000000"
       default_workspace_background: "transparent"
+  components_right:
+    - type: "tiling direction"
+      label_horizontal: "⮂"
+      label_vertical: "⮁"
+      background: "#ffffff33"
+      margin: "0 4px"
+      padding: "0 8px"
 
 workspaces:
   - name: "1"
@@ -70,7 +77,7 @@ workspaces:
     display_name: "[ 3 ] Browsers"
     bind_to_monitor: 3
   - name: "4"
-    display_name: "[ 4 ] External Comms"
+    display_name: "[ 4 ] Comms"
     bind_to_monitor: 2
   - name: "5"
     display_name: "[ 5 ] Dev"
