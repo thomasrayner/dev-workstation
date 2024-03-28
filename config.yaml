@@ -112,22 +112,6 @@ window_rules:
  # - command: "resize borders 0px -7px -7px -7px"
  #   match_process_name: "steam"
 
-binding_modes:
-  - name: "resize"
-    keybindings:
-      # Resize focused window by a percentage or pixel amount.
-      - command: "resize width -2%"
-        bindings: ["H", "Left"]
-      - command: "resize width +2%"
-        bindings: ["L", "Right"]
-      - command: "resize height +2%"
-        bindings: ["K", "Up"]
-      - command: "resize height -2%"
-        bindings: ["J", "Down"]
-      # Press enter/escape to return to default keybindings.
-      - command: "binding mode none"
-        bindings: ["Escape", "Enter"]
-
 keybindings:
   # Shift focus in a given direction.
   - command: "focus left"
@@ -159,11 +143,6 @@ keybindings:
   - command: "resize height -2%"
     binding: "Alt+Shift+OemMinus"
 
-  # As an alternative to the resize keybindings above, resize mode enables resizing via
-  # HJKL or arrow keys. The binding mode is defined above with the name "resize".
-  - command: "binding mode resize"
-    binding: "Alt+R"
-
   # Change tiling direction. This determines where new tiling windows will be inserted.
   - command: "tiling direction toggle"
     binding: "Alt+X"
@@ -179,10 +158,6 @@ keybindings:
   # Change the focused window to be maximized / unmaximized.
   - command: "toggle maximized"
     binding: "Alt+G"
-
-  # Minimize focused window.
-  - command: "set minimized"
-    binding: "Alt+Q"
 
   # Close focused window.
   - command: "close"
@@ -227,6 +202,14 @@ keybindings:
     binding: "Alt+9"
   - command: "focus workspace 7"
     binding: "Alt+C"
+  - command: "focus workspace 6"
+    binding: "Alt+W"
+  - command: "focus workspace 7"
+    binding: "Alt+E"
+  - command: "focus workspace 8"
+    binding: "Alt+R"
+  - command: "focus workspace 9"
+    binding: "Alt+T"
 
   # Move focused workspace to a monitor in a given direction.
   - command: "move workspace left"
@@ -259,3 +242,11 @@ keybindings:
     bindings: ["Alt+Shift+9"]
   - commands: ["move to workspace 7", "focus workspace 7"]
     binding: "Alt+Shift+C"
+  - commands: ["move to workspace 6", "focus workspace 6"]
+    binding: "Alt+Shift+W"
+  - commands: ["move to workspace 7", "focus workspace 7"]
+    binding: "Alt+Shift+E"
+  - commands: ["move to workspace 8", "focus workspace 8"]
+    binding: "Alt+Shift+R"
+  - commands: ["move to workspace 9", "focus workspace 9"]
+    bindings: ["Alt+Shift+T"]
