@@ -163,10 +163,6 @@ keybindings:
   - command: "close"
     binding: "Alt+Shift+Q"
 
-  # Kill GlazeWM process safely.
-  - command: "exit wm"
-    binding: "Alt+Shift+E"
-
   # Re-evaluate configuration file.
   - command: "reload config"
     binding: "Alt+Shift+R"
