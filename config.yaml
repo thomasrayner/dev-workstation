@@ -91,6 +91,28 @@ workspaces:
     display_name: "[ 8 ] Hotel"
   - name: "9"
     display_name: "[ 9 ] India"
+  - name: "10"
+    display_name: "[ 10 ] Juliet"
+  - name: "11"
+    display_name: "[ 11 ] Kilo"
+  - name: "12"
+    display_name: "[ 12 ] Lima"
+  - name: "13"
+    display_name: "[ 13 ] Mike"
+  - name: "14"
+    display_name: "[ 14 ] November"
+  - name: "15"
+    display_name: "[ 15 ] Oscar"
+  - name: "16"
+    display_name: "[ 16 ] Papa"
+  - name: "17"
+    display_name: "[ 17 ] Quebec"
+  - name: "18"
+    display_name: "[ 18 ] Romeo"
+  - name: "19"
+    display_name: "[ 19 ] Sierra"
+  - name: "20"
+    display_name: "[ 20 ] Tango"
 
 window_rules:
   # Task Manager requires admin privileges to manage and should be ignored unless running
@@ -163,10 +185,6 @@ keybindings:
   - command: "close"
     binding: "Alt+Shift+Q"
 
-  # Kill GlazeWM process safely.
-  - command: "exit wm"
-    binding: "Alt+Shift+E"
-
   # Re-evaluate configuration file.
   - command: "reload config"
     binding: "Alt+Shift+R"
@@ -210,6 +228,28 @@ keybindings:
     binding: "Alt+R"
   - command: "focus workspace 9"
     binding: "Alt+T"
+  - command: "focus workspace 10"
+    binding: "Alt+0"
+  - command: "focus workspace 11"
+    binding: "Alt+Insert+1"
+  - command: "focus workspace 12"
+    binding: "Alt+Insert+2"
+  - command: "focus workspace 13"
+    binding: "Alt+Insert+3"
+  - command: "focus workspace 14"
+    binding: "Alt+Insert+4"
+  - command: "focus workspace 15"
+    binding: "Alt+Insert+5"
+  - command: "focus workspace 16"
+    binding: "Alt+Insert+6"
+  - command: "focus workspace 17"
+    binding: "Alt+Insert+7"
+  - command: "focus workspace 18"
+    binding: "Alt+Insert+8"
+  - command: "focus workspace 19"
+    binding: "Alt+Insert+9"
+  - command: "focus workspace 20"
+    binding: "Alt+Insert+0"
 
   # Move focused workspace to a monitor in a given direction.
   - command: "move workspace left"
@@ -250,3 +290,25 @@ keybindings:
     binding: "Alt+Shift+R"
   - commands: ["move to workspace 9", "focus workspace 9"]
     bindings: ["Alt+Shift+T"]
+  - commands: ["move to workspace 10", "focus workspace 10"]
+    bindings: ["Alt+Shift+0"]
+  - commands: ["move to workspace 11", "focus workspace 11"]
+    bindings: ["Alt+Shift+Insert+1"]
+  - commands: ["move to workspace 12", "focus workspace 12"]
+    bindings: ["Alt+Shift+Insert+2"]
+  - commands: ["move to workspace 13", "focus workspace 13"]
+    bindings: ["Alt+Shift+Insert+3"]
+  - commands: ["move to workspace 14", "focus workspace 14"]
+    bindings: ["Alt+Shift+Insert+4"]
+  - commands: ["move to workspace 15", "focus workspace 15"]
+    bindings: ["Alt+Shift+Insert+5"]
+  - commands: ["move to workspace 16", "focus workspace 16"]
+    bindings: ["Alt+Shift+Insert+6"]
+  - commands: ["move to workspace 17", "focus workspace 17"]
+    bindings: ["Alt+Shift+Insert+7"]
+  - commands: ["move to workspace 18", "focus workspace 18"]
+    bindings: ["Alt+Shift+Insert+8"]
+  - commands: ["move to workspace 19", "focus workspace 19"]
+    bindings: ["Alt+Shift+Insert+9"]
+  - commands: ["move to workspace 20", "focus workspace 20"]
+    bindings: ["Alt+Shift+Insert+0"]
