@@ -37,11 +37,11 @@ choco install $chocoPackages -y
 choco install 'microsoft-windows-terminal' -y --pre
 
 # Window manager isn't on choco
-winget install GlazeWM
-mkdir "$env:USERPROFILE\.glaze-wm" -ea 0
-$glazeStart = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/glazestart.ps1' -UseBasicParsing).Content
-$glazeConfig = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/config.yaml' -UseBasicParsing).Content
-Set-Content -Path "$env:USERPROFILE\.glaze-wm\config.yaml" -Value $glazeConfig -Force
+# winget install GlazeWM
+# mkdir "$env:USERPROFILE\.glaze-wm" -ea 0
+# $glazeStart = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/glazestart.ps1' -UseBasicParsing).Content
+# $glazeConfig = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/config.yaml' -UseBasicParsing).Content
+# Set-Content -Path "$env:USERPROFILE\.glaze-wm\config.yaml" -Value $glazeConfig -Force
 
 npm install -g yo generator-code vsce typescript ts-node
 
