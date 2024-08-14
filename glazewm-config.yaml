@@ -201,7 +201,13 @@ keybindings:
     bindings: ['alt+shift+e']
 
   # Re-evaluate configuration file.
-  - commands: ['wm-reload-config']
+  - commands:
+      [
+        'wm-reload-config',
+        'shell-exec taskkill -IM zebar.exe -F',
+        'shell-exec timeout 2',
+        'shell-exec %userprofile%/.glzr/zebar/start.bat'
+      ]
     bindings: ['alt+shift+r']
 
   # Redraw all windows.
@@ -216,7 +222,7 @@ keybindings:
 
   # Focus the workspace that last had focus.
   - commands: ['focus --recent-workspace']
-    bindings: ['alt+y']
+    bindings: ['alt+r']
 
   # Change focus to a workspace defined in `workspaces` config.
   - commands: ['focus --workspace 1']
