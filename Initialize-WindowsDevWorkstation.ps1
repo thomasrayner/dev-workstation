@@ -37,11 +37,11 @@ choco install $chocoPackages -y
 choco install 'microsoft-windows-terminal' -y --pre
 
 # Window manager isn't on choco
-# winget install GlazeWM
-# mkdir "$env:USERPROFILE\.glaze-wm" -ea 0
-# $glazeStart = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/glazestart.ps1' -UseBasicParsing).Content
-# $glazeConfig = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/config.yaml' -UseBasicParsing).Content
-# Set-Content -Path "$env:USERPROFILE\.glaze-wm\config.yaml" -Value $glazeConfig -Force
+winget install GlazeWM
+$glazeConfig = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/glazewm-config.yaml' -UseBasicParsing).Content
+Set-Content -Path "$env:USERPROFILE\.glzr\glazewm\config.yaml" -Value $glazeConfig -Force
+$zebarConfig = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/zebar-config.yaml' -UseBasicParsing).Content
+Set-Content -Path "$env:USERPROFILE\.glzr\zebar\config.yaml" -Value $zebarConfig -Force
 
 npm install -g yo generator-code vsce typescript ts-node
 
@@ -81,9 +81,15 @@ $teamsMute = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/
 $teamsCam = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/teamscam.ahk' -UseBasicParsing).Content
 Set-Content -Path "$startupPath\teamsmute.ahk" -Value $teamsMute -Force
 Set-Content -Path "$startupPath\teamscam.ahk" -Value $teamsCam -Force
-Set-Content -Path "$startupPath\start-glaze.ps1" -Value $glazeStart -Force
 
 # Install WSL & distributions
 wsl --install -d Ubuntu
 
 git config --global core.editor "nvim"
+
+# Setup Windows Terminal
+Set-ItemProperty -Path "HKCU:\Console" -Name "ForceV2" -Value 1
+Set-ItemProperty -Path "HKCU:\Console" -Name "Terminal" -Value "Windows Terminal Preview"
+$terminalConfig = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/windows-terminal-settings.json' -UseBasicParsing).Content
+Set-Content -Path "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe\LocalState\settings.json" -Value $terminalConfig -Force
+
