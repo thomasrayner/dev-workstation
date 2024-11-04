@@ -1,0 +1,56 @@
+format = """
+$directory$git_branch$git_commit[](fg:#641a64)[$git_status](bg:#641a64)[](fg:#641a64)$dotnet$rust$golang$java$nodejs$python$cmd_duration
+$character"""
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Inserts a blank line between shell prompts
+add_newline = false
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true
+
+# my config
+
+[cmd_duration]
+min_time = 100
+format = '[](fg:#035306)[$duration](bold fg:green bg:#035306)[](fg:#035306)'
+
+[directory]
+truncation_length = 150
+truncation_symbol = '.../'
+format = '[](fg:#03507d)[$path](fg:bright-cyan bg:#03507d)[](fg:#03507d)'
+
+[direnv]
+disabled = false
+
+[dotnet]
+heuristic = true
+
+[git_branch]
+format = '[](fg:#420000)[$symbol$branch](fg:bright-red bg:#420000)[](fg:#420000)'
+
+[git_commit]
+format = '[](fg:#8c7012)[$hash](bold fg:bright-yellow bg:#8c7012)[](fg:#8c7012)'
+commit_hash_length = 6
+tag_symbol = '🔖 '
+only_detached = false
+tag_disabled = false
+
+[git_state]
+# nil
+
+[git_status]
+# Show the info relative to the upstream first: how many commits ahead/behind/diverged/conflicted
+# Show the info for current working set after: deleted, staged, renamed, modified, untracked.
+format = "$ahead$behind$diverged$conflicted$deleted$staged$renamed$modified$untracked"
+conflicted = "[≠ $count](bold fg:purple bg:#641a64)"
+ahead = "[⇡ $count](bold fg:purple bg:#641a64)"
+behind = "[⇣ $count](bold fg:purple bg:#641a64)"
+diverged = "[⇕ $count](bold fg:purple bg:#641a64)"
+untracked = "[+ $count](bold fg:blue bg:#641a64)"
+modified = "[~ $count](bold fg:cyan bg:#641a64)"
+staged = "[++ $count](bold fg:green bg:#641a64)"
+renamed = "[» $count](bold fg:white bg:#641a64)"
+deleted = "[✘ $count](bold fg:red bg:#641a64)"
