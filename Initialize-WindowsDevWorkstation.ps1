@@ -41,8 +41,8 @@ choco install 'microsoft-windows-terminal' -y --pre
 winget install GlazeWM
 $glazeConfig = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/glazewm-config.yaml' -UseBasicParsing).Content
 Set-Content -Path "$env:USERPROFILE\.glzr\glazewm\config.yaml" -Value $glazeConfig -Force
-$zebarConfig = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/zebar-config.yaml' -UseBasicParsing).Content
-Set-Content -Path "$env:USERPROFILE\.glzr\zebar\config.yaml" -Value $zebarConfig -Force
+$zebarConfig = (Invoke-WebRequest 'https://raw.githubusercontent.com/thomasrayner/dev-workstation/master/with-glazewm.html' -UseBasicParsing).Content
+Set-Content -Path "$env:USERPROFILE\.glzr\zebar\starter\with-glazewm.html" -Value $zebarConfig -Force
 
 npm install -g yo generator-code vsce typescript ts-node
 
