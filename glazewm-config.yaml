@@ -1,7 +1,7 @@
 general:
   # Commands to run when the WM has started (e.g. to run a script or launch
   # another application). Here we are running a batch script to start Zebar.
-  startup_commands: ['shell-exec %userprofile%/.glzr/zebar/start.bat']
+  # startup_commands: ['shell-exec %userprofile%/.glzr/zebar/start.bat']
 
   # Whether to automatically focus windows underneath the cursor.
   focus_follows_cursor: false
@@ -59,7 +59,7 @@ window_behavior:
       centered: true
 
       # Whether to show floating windows as always on top.
-      shown_on_top: false
+      shown_on_top: true
 
     fullscreen:
       # Maximize the window if possible. If the window doesn't have a
@@ -127,14 +127,12 @@ window_rules:
         window_class: { regex: 'HwndWrapper*' }
 
 binding_modes:
-  # When enabled, the focused window can be resized via arrow keys or HJKL.
-
   # When enabled, all keybindings are disabled except for alt+shift+p which
   # returns to default keybindings.
-  - name: 'pause'
-    keybindings:
-      - commands: ['wm-disable-binding-mode --name pause']
-        bindings: ['alt+shift+p']
+  # - name: 'pause'
+  #   keybindings:
+  #     - commands: ['wm-disable-binding-mode --name pause']
+  #       bindings: ['alt+shift+p']
 
 keybindings:
   # Shift focus in a given direction.
@@ -186,7 +184,7 @@ keybindings:
 
   # Change the focused window to be tiling.
   - commands: ['toggle-tiling']
-    bindings: ['alt+shift+t']
+    bindings: ['alt+i']
 
   # Change the focused window to be fullscreen.
   - commands: ['toggle-fullscreen']
@@ -194,11 +192,11 @@ keybindings:
 
   # Close focused window.
   - commands: ['close']
-    bindings: ['alt+shift+q']
+    bindings: ['alt+shift+w']
 
   # Kill GlazeWM process safely.
   - commands: ['wm-exit']
-    bindings: ['alt+shift+e']
+    bindings: ['alt+shift+p']
 
   # Re-evaluate configuration file.
   - commands:
@@ -211,8 +209,8 @@ keybindings:
     bindings: ['alt+shift+r']
 
   # Redraw all windows.
-  - commands: ['wm-redraw']
-    bindings: ['alt+shift+w']
+  # - commands: ['wm-redraw']
+  #   bindings: ['alt+shift+w']
 
   # Focus the next/previous workspace defined in `workspaces` config.
   - commands: ['focus --next-workspace']
@@ -322,3 +320,11 @@ keybindings:
     bindings: ['alt+insert+shift+9']
   - commands: ['move --workspace 20', 'focus --workspace 20']
     bindings: ['alt+insert+shift+0']
+
+  # Toggle recent workspace
+  - commands: ['focus --recent-workspace']
+    bindings: ['alt+oem_open_brackets']
+   
+  # Launch Windows Terminal
+  - commands: ['shell-exec wt']
+    bindings: ['alt+enter']
