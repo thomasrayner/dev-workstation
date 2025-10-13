@@ -51,12 +51,6 @@
     },
     "extensions.ignoreRecommendations": false,
     "git.openRepositoryInParentFolders": "never",
-    "github.copilot.enable": {
-        "*": false,
-        "plaintext": false,
-        "markdown": false,
-        "scminput": false
-    },
     "liveshare.featureSet": "insiders",
     "notebook.output.textLineLimit": 9999999999999,
     "omnisharp.enableRoslynAnalyzers": true,
@@ -521,7 +515,7 @@
             ]
         }
     ],
-    "vim.useSystemClipboard": false,
+    "vim.useSystemClipboard": true,
     "vim.highlightedyank.enable": true,
     "vim.enableNeovim": true,
     "vim.neovimPath": "C:\\tools\\neovim\\nvim-win64\\bin\\nvim.exe",
@@ -553,5 +547,22 @@
     "editor.insertSpaces": true,
     "[go]": {
         "editor.formatOnSave": false
-    }
+    },
+    "bracket-pair-colorizer-2.depreciation-notice": false,
+    "azureFunctions.showProjectWarning": false,
+    "notebook.compactView": false,
+    "notebook.showFoldingControls": "always",
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    },
+    "python.defaultInterpreterPath": "/bin/python3",
+    "notebook.cellToolbarVisibility": "hover",
+    "notebook.consolidatedRunButton": true,
+    "notebook.inlineValues": "auto",
+    "notebook.lineNumbers": "on",
+    "notebook.variablesView": true
 }
